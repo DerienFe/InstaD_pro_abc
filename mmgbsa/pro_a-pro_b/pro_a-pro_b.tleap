@@ -1,0 +1,12 @@
+pro_apro_b = loadpdb ../pro/pro_a-pro_b.pdb
+pro_a = loadpdb ../pro/pro_a.pdb
+pro_b = loadpdb ../pro/pro_b.pdb
+set default PBRadii mbondi2
+saveamberparm pro_apro_b pro_a-pro_b.prmtop pro_a-pro_b.inpcrd
+saveamberparm pro_a pro_a.prmtop pro_a.inpcrd
+saveamberparm pro_b pro_b.prmtop pro_b.inpcrd
+
+charge pro_apro_b
+solvatebox pro_apro_b TIP3Ppro_bOX 12.0
+saveamberparm pro_apro_b pro_a-pro_b_solvated.prmtop pro_a-pro_b_solvated.inpcrd
+quit
