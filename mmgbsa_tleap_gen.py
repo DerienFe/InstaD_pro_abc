@@ -5,7 +5,7 @@ import argparse
 import os
 import config
 
-def generate_tleap_scripts(combinations):
+def generate_tleap_scripts(combinations, gen_tleap = True):
     # Create argument parser
     parser = argparse.ArgumentParser(description='Generate tleap scripts for mmgbsa')
     parser.add_argument('-od', '--output_directory', default='./mmgbsa', help='Output directory for tleap scripts')
@@ -53,35 +53,36 @@ quit
         subfolder_path = os.path.join(args.output_directory, complex_name)
         os.makedirs(subfolder_path, exist_ok=True)
 
+    if gen_tleap:
     # Write the tleap scripts to files within the subfolders
-    for complex_name, tleap_script in tleap_scripts.items():
-        # Define the subfolder path for each complex
-        subfolder_path = os.path.join(args.output_directory, complex_name)
+        for complex_name, tleap_script in tleap_scripts.items():
+            # Define the subfolder path for each complex
+            subfolder_path = os.path.join(args.output_directory, complex_name)
 
-        # Write tleap script
-        tleap_file_path = os.path.join(subfolder_path, f"{complex_name}.tleap")
-        with open(tleap_file_path, "w") as f:
-            f.write(tleap_script)
-        
-        # Generate and write minimization input
-        min_file_path = os.path.join(subfolder_path, f"{complex_name}_min.in")
-        with open(min_file_path, "w") as f:
-            f.write(generate_minimization_input())
+            # Write tleap script
+            tleap_file_path = os.path.join(subfolder_path, f"{complex_name}.tleap")
+            with open(tleap_file_path, "w") as f:
+                f.write(tleap_script)
+            
+            # Generate and write minimization input
+            min_file_path = os.path.join(subfolder_path, f"{complex_name}_min.in")
+            with open(min_file_path, "w") as f:
+                f.write(generate_minimization_input())
 
-        # Generate and write NVT equilibration input
-        nvt_file_path = os.path.join(subfolder_path, f"{complex_name}_NVT.in")
-        with open(nvt_file_path, "w") as f:
-            f.write(generate_NVT_equilibration_input())
-        
-        # Generate and write NPT equilibration input
-        npt_file_path = os.path.join(subfolder_path, f"{complex_name}_NPT.in")
-        with open(npt_file_path, "w") as f:
-            f.write(generate_NPT_equilibration_input())
-        
-        # Generate and write production input
-        production_file_path = os.path.join(subfolder_path, f"{complex_name}_production.in")
-        with open(production_file_path, "w") as f:
-            f.write(generate_production_input())
+            # Generate and write NVT equilibration input
+            nvt_file_path = os.path.join(subfolder_path, f"{complex_name}_NVT.in")
+            with open(nvt_file_path, "w") as f:
+                f.write(generate_NVT_equilibration_input())
+            
+            # Generate and write NPT equilibration input
+            npt_file_path = os.path.join(subfolder_path, f"{complex_name}_NPT.in")
+            with open(npt_file_path, "w") as f:
+                f.write(generate_NPT_equilibration_input())
+            
+            # Generate and write production input
+            production_file_path = os.path.join(subfolder_path, f"{complex_name}_production.in")
+            with open(production_file_path, "w") as f:
+                f.write(generate_production_input())
 
 def generate_minimization_input():
     minimization_template = """minimize complex

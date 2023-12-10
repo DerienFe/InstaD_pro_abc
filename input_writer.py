@@ -324,8 +324,6 @@ def mmgbsa_writer(workdir, type="qm"):
             f.write(pb)
     return 0
 
-
-
 if __name__ == "__main__":
     gmx_mdp_writer(".")
     mmgbsa_writer(".", type = "pb")
