@@ -592,13 +592,17 @@ def read_decomp_results(datfile, exp_name='decomp_exp', receptor_offset=333, bin
     receptor_labels = fix_index(receptor_labels, receptor_offset)
     binder_labels = fix_index(binder_labels, binder_offset)
 
+    #we get overall dG:
+    path = os.path.dirname(datfile)
+    mmgbsa_result = read_mmgbsa_result(os.path.join(path, "FINAL_RESULTS_MMPBSA.dat"))
+
     if plot:
         figs_dir = os.path.join("./","fig")
         if not os.path.exists(figs_dir):
             os.makedirs(figs_dir)
         
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 8))
-        fig.suptitle(exp_name)
+        fig.suptitle(exp_name + f" dG = {mmgbsa_result['dG(solv)']['dG']} +/- {mmgbsa_result['dG(solv)']['SD']} kcal/mol")
         ax1.bar(receptor_labels, receptor_values)
         ax1.set_title("Receptor decomp result")
         ax2.bar(binder_labels, binder_values)
@@ -611,3 +615,18 @@ def read_decomp_results(datfile, exp_name='decomp_exp', receptor_offset=333, bin
         plt.close(fig)
 
     return 0
+
+def read_mmgbsa_result(datfile, exp_name='mmgbsa_exp'):
+    with open(datfile,"r") as file:
+        results = {}
+        for line in file:
+            if "ΔTOTAL" in line:
+                line = line.split()
+                res = {}
+                res["dG"] = line[1]
+                res["SD"] = line[3]
+                res["SEM"] = line[5]
+                results["dG(solv)"] = res
+                break
+    return results
+    
