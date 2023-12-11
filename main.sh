@@ -58,9 +58,12 @@ cd ../../
 
 python mmgbsa_decomp_result_analysis.py >> log.txt
 
+#result saved in fig/
 
 #meta-Dynamics
 conda deactivate
 conda activate biophys_env
 
 python metaD_sim.py >> log.txt
+
+#result saved in metaD/

@@ -11,6 +11,7 @@ import openmm as omm
 from openmm import unit
 from openmm import Vec3
 import openmm.app as omm_app
+from openmm.app import *
 from openmm.app.topology import Topology
 from openmm.app.element import Element
 from openmm.app.metadynamics import BiasVariable, Metadynamics
@@ -26,7 +27,7 @@ def minimize(context):
     print("Setting up the simulation")
 
     # Minimizing step
-    context.setPositions(pdb.positions)
+    context.setPositions(gro.positions)
     state = context.getState(getEnergy = True)
     energy = state.getPotentialEnergy()
 
@@ -42,34 +43,44 @@ def minimize(context):
 
 
 if __name__ == "__main__":
-    prmtop_file = './mmgbsa/complex.prmtop' # Path #tpr #prmtop
-    inpcrd_file = './mmgbsa/complex.inpcrd' # Path # gro # inpcrd
+    gro_file = './mmgbsa/ab/complex.gro'
+    top_file = './mmgbsa/ab/complex.top'
 
     meta_freq = 5000
     meta_height = 5     #kcal/mol
 
-    prmtop = omm_app.AmberPrmtopFile(prmtop_file)
-    inpcrd = omm_app.AmberInpcrdFile(inpcrd_file)
+    gro = GromacsGroFile(gro_file)
+    top = GromacsTopFile(top_file, periodicBoxVectors=gro.getPeriodicBoxVectors(), includeDir='/usr/local/gromacs/share/gromacs/top')
     #forcefield = omm_app.ForceField('amber14-all.xml', 'amber14/tip3p.xml')
-    params = omm_app.CharmmParameterSet('toppar/toppar_water_ions.str') #we modified the combined LJ term between NaCl to have a -6.0kcal.mol at 2.5A
+    #params = omm_app.CharmmParameterSet('toppar/toppar_water_ions.str') #we modified the combined LJ term between NaCl to have a -6.0kcal.mol at 2.5A
+
+    #save the pdb file for check.
+    #with open('./metaD/complex.pdb', 'w') as f:
+    #    omm_app.PDBFile.writeFile(prmtop.topology, inpcrd.positions, f)
 
     for i_sim in range(config.num_sim):
         print(f"MetaD Simulation {i_sim} starting")
         time_tag = time.strftime("%Y%m%d-%H%M%S")
-        system = prmtop.createSystem(params,
+        system = top.createSystem(nonbondedMethod=PME,
                                   nonbondedCutoff=1.0*unit.nanometers,
-                                  constraints=omm_app.HBonds)
+                                  constraints=HBonds)
         
         #metaD
-        bias_bond = omm.CustomBondForce("r")
-        bias_bond.addBond(0, 1)
-        dist_cv = BiasVariable(bias_bond, 0.3, 1, 0.02, False)  #at PDB 7z0x distance = 4.8A. note openmm use nm.
+        centroid_bond_force = omm.CustomCentroidBondForce(2, "distance(g1,g2)")
+        group1_index = []
+        group2_index = []
+        for atom in top.topology.atoms():
+            if atom.residue.index == config.res1_index:
+                group1_index.append(atom.index)
+            if atom.residue.index == config.res2_index:
+                group2_index.append(atom.index)
+        print("group1_index", group1_index)
+        print("group2_index", group2_index)
 
-        bias_dist = omm.CustomCentroidBondForce(2, "0.5*k*(distance(g1,g2)^2)")
-        bias_dist.addGroup([486]) #index of Phe486
-        bias_dist.addGroup([52]) #index of Tyr52 
-        
-
+        group1_index = centroid_bond_force.addGroup(group1_index)
+        group2_index = centroid_bond_force.addGroup(group2_index)
+        centroid_bond_force.addBond([group1_index, group2_index])
+        dist_cv = BiasVariable(centroid_bond_force, 0.3, 1, 0.02, True)  #at PDB 7z0x distance ~= 4.8A. note openmm use nm.
 
         aux_file_path = os.path.join("./metaD/aux_file_dir/" + time_tag)
         if not os.path.exists(aux_file_path):
@@ -83,23 +94,22 @@ if __name__ == "__main__":
                             saveFrequency=meta_freq,
                             biasDir=aux_file_path)
         
-        platform = omm.Platform.getPlatformByName('CUDA')
+        platform = config.platform
         integrator = omm.LangevinIntegrator(config.T*unit.kelvin, #Desired Integrator
                                             10/unit.picoseconds,
                                             config.stepsize)
 
-        NaCl_dist = [[]] #initialise the NaCl distance list.
         #simulation object, note the context object is automatically created.
-        sim = omm.app.Simulation(inpcrd.topology, system, integrator, platform=platform)
-        sim.context.setPositions(inpcrd.positions)
+        sim = omm.app.Simulation(top.topology, system, integrator, platform=platform)
+        sim.context.setPositions(gro.positions)
 
         #minimize the energy
         context, energy = minimize(sim.context)
         sim.context = context
 
         #run the simulation
-        file_handle = open(f'/metaD/trajectory/{time_tag}_metaD_traj.dcd', 'wb')
-        dcd_file = omm_app.DCDFile(file_handle, inpcrd.topology, dt = config.stepsize)
+        file_handle = open(f'./metaD/trajectory/{time_tag}_metaD_traj.dcd', 'wb')
+        dcd_file = omm_app.DCDFile(file_handle, top.topology, dt = config.stepsize)
 
         for _ in tqdm(range(int(config.sim_steps/config.dcdfreq))):
             metaD.step(sim, config.dcdfreq)
