@@ -538,7 +538,6 @@ def file_preparation(mmgbsa_dir):
     receptor: the name of the receptor [pro_a]
     binder: the name of the binder [pro_b, pro_c]
     """
-
     workdirs = glob(f"{mmgbsa_dir}/*")
     workdirs = [workdir for workdir in workdirs if os.path.isdir(workdir)]
     for workdir in workdirs:
