@@ -13,6 +13,7 @@ Before setting up the pipeline, ensure that you have the following prerequisites
 ### Gromacs Installation
 For detailed instructions on installing Gromacs, please refer to the [Gromacs Installation Guide](https://manual.gromacs.org/documentation/current/install-guide/index.html).
 To install Gromacs with GPU support, follow these steps:
+```bash
 tar xfz gromacs-2023.3.tar.gz
 cd gromacs-2023.3
 mkdir build
@@ -22,7 +23,7 @@ make
 make check
 sudo make install
 source /usr/local/gromacs/bin/GMXRC
-
+```
 
 ### Setting Up Conda Environments
 Conda environments are used to manage the dependencies and packages required for this pipeline. For instructions on installing Conda, visit the [Conda Installation Guide](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
@@ -32,12 +33,14 @@ To set up the `gmxMMPBSA` environment, follow the guidelines provided [here](htt
 
 #### biophys_env Environment
 To create and configure the `biophys_env` environment, execute the following commands:
+```bash
 conda create -n biophys_env
 conda activate biophys_env
 conda install -c conda-forge openmm python numpy scipy tqdm scipy matplotlib mdtraj plotly python-kaleido
-
+```
 
 ## Usage
+```
 chmod +x ./main.sh
 bash main.sh
-
+```
