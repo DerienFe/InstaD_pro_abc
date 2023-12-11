@@ -1,4 +1,144 @@
-#!/usr/bin/env python
+#this is a combined util file for all the functions used in the project
+#by TW 10th Dec 2023
+
+import os
+import shutil
+import subprocess
+import config
+import time
+import sys
+import argparse
+
+import matplotlib.pyplot as plt
+
+from glob import glob
+from matplotlib import rcParams
+
+rcParams.update({'font.size': 16})
+
+def generate_tleap_scripts(parent_dir, gen_amber_tleap = False):
+
+    # Define a template for the tleap script
+    #dont change the indentation or enter new line as it perturbs the tleap script
+    tleap_template = """source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+loadamberparams frcmod.ionsjc_tip3p
+
+pro_a = loadpdb ./pro/pro_a.amber.pdb
+pro_b = loadpdb ./pro/pro_b.amber.pdb
+pro_c = loadpdb ./pro/pro_c.amber.pdb
+
+complex_ab = combine {pro_a pro_b}
+complex_ac = combine {pro_a pro_c}
+
+charge complex_ab
+charge complex_ac
+
+savepdb complex_ab ./mmgbsa/complex_ab.pdb
+savepdb complex_ac ./mmgbsa/complex_ac.pdb
+
+
+solvatebox complex_ab TIP3PBOX 12.0
+solvatebox complex_ac TIP3PBOX 12.0
+
+addions complex_ab Na+ 0
+addions complex_ab Cl- 0
+addions complex_ac Na+ 0
+addions complex_ac Cl- 0
+
+savepdb pro_a ./mmgbsa/ab/receptor.pdb
+savepdb pro_a ./mmgbsa/ac/receptor.pdb
+savepdb pro_b ./mmgbsa/ab/binder.pdb
+savepdb pro_c ./mmgbsa/ac/binder.pdb
+
+saveamberparm complex_ab ./mmgbsa/ab/complex.prmtop ./mmgbsa/ab/complex.inpcrd
+saveamberparm complex_ac ./mmgbsa/ac/complex.prmtop ./mmgbsa/ac/complex.inpcrd
+saveamberparm pro_a ./mmgbsa/ab/receptor.prmtop ./mmgbsa/ab/receptor.inpcrd
+saveamberparm pro_a ./mmgbsa/ac/receptor.prmtop ./mmgbsa/ac/receptor.inpcrd
+saveamberparm pro_b ./mmgbsa/ab/binder.prmtop ./mmgbsa/ab/binder.inpcrd
+saveamberparm pro_c ./mmgbsa/ac/binder.prmtop ./mmgbsa/ac/binder.inpcrd
+quit
+"""
+    #we write the template to output directory
+    tleap_file_path = os.path.join(parent_dir, "gen_complex.tleap")
+    with open(tleap_file_path, "w") as f:
+        f.write(tleap_template)
+
+    if gen_amber_tleap:
+        raise NotImplementedError("amber tleap script generation is scrapped")
+
+    def generate_minimization_input():
+        minimization_template = """minimize complex
+    &cntrl
+    imin=1,
+    maxcyc=1000,
+    ncyc=500,
+    cut=8.0,
+    ntb=1,
+    ntc=2,
+    ntf=2,
+    ntpr=100,
+    ntr=1, 
+    /"""
+        return minimization_template
+
+    def generate_NVT_equilibration_input():
+        NVT_equilibration_template = """heat complex
+    &cntrl
+    imin=0,irest=0,ntx=1,
+    nstlim=25000,dt=0.002,
+    ntc=2,ntf=2,
+    cut=8.0, ntb=1,
+    ntpr=500, ntwx=500,
+    ntt=3, gamma_ln=2.0,
+    tempi=0.0, temp0=300.0, ig=-1,
+    ntr=1, restraintmask=':1-242',
+    restraint_wt=2.0,
+    nmropt=1
+    /
+    &wt TYPE='TEMP0', istep1=0, istep2=25000,
+    value1=0.1, value2=300.0, /
+    &wt TYPE='END' /
+    """
+        return NVT_equilibration_template
+
+    def generate_NPT_equilibration_input():
+        NPT_equilibration_template = """heat complex
+    &cntrl
+    imin=0,irest=1,ntx=5,
+    nstlim=25000,dt=0.002,
+    ntc=2,ntf=2,
+    cut=8.0, ntb=2, ntp=1, taup=1.0,
+    ntpr=500, ntwx=500,
+    ntt=3, gamma_ln=2.0,
+    temp0=300.0, ig=-1,
+    ntr=1, restraintmask=':1-242',
+    restraint_wt=2.0,
+    /"""
+        return NPT_equilibration_template
+
+    def generate_production_input():
+        production_template = """heat complex
+    &cntrl
+    imin=0,irest=1,ntx=5,
+    nstlim=250000,dt=0.002,
+    ntc=2,ntf=2,
+    cut=8.0, ntb=2, ntp=1, taup=2.0,
+    ntpr=1000, ntwx=1000,
+    ntt=3, gamma_ln=2.0,
+    temp0=300.0, ig=-1,
+    /"""
+        return production_template
+
+def convert_gmx(workdir, molname):
+    import parmed as pmd
+    # Convert molecule to Gromacs readible file
+    prmtop_path = os.path.join(workdir, f'{molname}.prmtop')
+    inpcrd_path = os.path.join(workdir, f'{molname}.inpcrd')
+    par = pmd.load_file(prmtop_path, inpcrd_path)
+    par.save(f'{workdir}/{molname}.gro', overwrite=True)
+    par.save(f'{workdir}/{molname}.top', overwrite=True)
+    return 0
 
 def gmx_mdp_writer(workdir):
     ion_mdp = ('title		    = Ions\n'
@@ -195,7 +335,7 @@ def gmx_mdp_writer(workdir):
 
     return 0
 
-def mmgbsa_writer(workdir, type="qm"):
+def mmgbsa_writer(workdir, type="gb"):
     qm = ('&general\n'
           'sys_name="QM-MMPBSA Decomposition",\n'
           'startframe=100,\n'
@@ -212,7 +352,7 @@ def mmgbsa_writer(workdir, type="qm"):
           'qm_theory=PM6-DH+,\n'
           'qm_residues="within 3"\n'
           '/\n')
-    pb = ('# General namelist variables \n'
+    pb_full = ('# General namelist variables \n'
             '&general \n'
             '  sys_name             = ""                                             # System name \n'
             '  startframe           = 100                                            # First frame to analyze \n'
@@ -316,14 +456,159 @@ def mmgbsa_writer(workdir, type="qm"):
             '  print_res            = "within 6"                                     # Which residues to print decomposition data for \n'
             '  csv_format           = 1                                              # Write decomposition data in CSV format \n'
             '/ \n')
+    gb = ('Input file for running PB and GB \n'
+        'Taken from AMBER 2022 mannual page 853 \n'
+        '&general \n'
+        'sys_name="SARS_CoV2_S1 decomposition" \n'
+        '  startframe=100, endframe=500, interval=20, \n'
+        '  forcefields="leaprc.protein.ff14SB" \n'
+        '  verbose=2, keep_files=0, \n'
+        '/ \n'
+        '&gb \n'
+        '  igb=5, saltcon=0.150 \n'
+        '/ \n'
+        '&decomp \n'
+        '  idecomp=1, dec_verbose=0, \n'
+        '  print_res="within 4" \n'
+        ' \n/')
     if type == "qm":
         with open(f"{workdir}/mmgbsa.in", "w") as f:
             f.write(qm)
     elif type == 'pb':
         with open(f"{workdir}/mmgbsa.in", "w") as f:
-            f.write(pb)
+            f.write(pb_full)
+    elif type == 'gb':
+        with open(f"{workdir}/mmgbsa.in", "w") as f:
+            f.write(gb)
     return 0
 
-if __name__ == "__main__":
-    gmx_mdp_writer(".")
-    mmgbsa_writer(".", type = "pb")
+def local_run_writer(workdir, binder_name):
+    """
+    workdir: the directory where the files are located
+    mol_name: the name of the molecule
+    num_atom_pro_abc: the number of atoms in the protein A, B, C in list [A, B, C]
+    """
+    first_line = ("#!/bin/bash\n"
+                  "export GMX_FORCE_UPDATE_DEFAULT_GPU=true\n")
+    gromacs_run = ("# EM\n"
+                   "gmx grompp -f em_steep.mdp "
+                   "-c complex.gro -p complex.top -o em.tpr -maxwarn 3\n"
+                   "gmx mdrun -nb gpu -deffnm em -ntmpi 1 -ntomp 18 -pin on\n"
+                   "# NVT\n"
+                   "gmx grompp -f nvt.mdp "
+                   "-c em.gro -r em.gro -p complex.top -o nvt.tpr -maxwarn 3\n"
+                   "gmx mdrun -nb gpu -deffnm nvt -ntmpi 1 -ntomp 18 -pin on\n"
+                   "# NPT\n"
+                   "gmx grompp -f npt.mdp "
+                   "-c nvt.gro -r nvt.gro -p complex.top -o npt.tpr -maxwarn 3\n"
+                   "gmx mdrun -deffnm npt -pin on -nb gpu -bonded gpu "
+                   "-pme gpu -nstlist 400 -ntmpi 1 -ntomp 18\n"
+                   "# Production MD\n"
+                   "gmx grompp -f npt.mdp "
+                   "-c npt.gro -r npt.gro -p complex.top -o md.tpr -maxwarn 3\n"
+                   "gmx mdrun -deffnm md -pin on -nb gpu -bonded gpu "
+                   "-pme gpu -nstlist 400 -ntmpi 1 -ntomp 18\n")
+    finish = ('#grep the atom number use grep. \n'
+              'atom_num_pro_receptor=$(grep -c "ATOM" receptor.pdb) \n'
+              'atom_num_pro_binder=$(grep -c "ATOM" binder.pdb) \n'
+              'start_pro_binder=$((atom_num_pro_receptor + 1)) \n'
+              'end_pro_binder=$((atom_num_pro_receptor + atom_num_pro_binder)) \n'
+              'echo -e "keep 1\\na 1-${atom_num_pro_receptor}\\nname 1 receptor\\na ${start_pro_binder}-${end_pro_binder}\\nname 2 binder\\nq" | gmx make_ndx -f md.gro -o index.ndx  \n'
+              'echo 1 0 | gmx trjconv -f md.xtc -o md_c.xtc -s md.tpr '
+              '-pbc mol -center\n')
+    jobruns = ("#here we switch back to gmxMMPBSA conda env. \n"
+               "source /home/tj/miniconda3/etc/profile.d/conda.sh  \n"
+               "conda activate gmxMMPBSA  \n"
+               "mpirun -np 16 gmx_MMPBSA MPI -O -i mmgbsa.in "
+               "-cs md.tpr -ci index.ndx"
+               " -cg 1 2 -ct md_c.xtc "
+               f"-cp complex.top -nogui\n")
+
+    with open(f"{workdir}/run_local.sh", "w") as f:
+        f.write(first_line)
+        f.write(gromacs_run)
+        f.write(finish)
+        f.write(jobruns)
+
+    return 0
+
+def file_preparation(mmgbsa_dir):
+    """
+    mmgbsa_dir: the directory where the files are located
+    receptor: the name of the receptor [pro_a]
+    binder: the name of the binder [pro_b, pro_c]
+    """
+
+    workdirs = glob(f"{mmgbsa_dir}/*")
+    workdirs = [workdir for workdir in workdirs if os.path.isdir(workdir)]
+    for workdir in workdirs:
+        #conversion of prmtop/inpcrd to gro/top
+        prmtop_files = glob(f"{workdir}/complex.prmtop")
+        basenames = [os.path.basename(prmtop_file).split(".")[0] for prmtop_file in prmtop_files]
+        for basename in basenames:
+            convert_gmx(workdir, basename)
+            print(f"converting {basename} to gmx format")
+        
+        #generate mdp files for running MD gromacs
+        gmx_mdp_writer(workdir)
+        print(f"generating mdp files for {workdir}...")
+
+        #generate mmgbsa input files for running mmgbsa gromacs
+        mmgbsa_writer(workdir)
+        print(f"generating mmgbsa input files for {workdir}...")
+    
+        #generate local .sh file to run gromacs on the generated mdp files
+        local_run_writer(workdir, basename)
+    return 0
+
+def read_decomp_results(datfile, exp_name='decomp_exp', receptor_offset=333, binder_offset=1, plot = True):
+    with open(datfile,"r") as file:
+        read_flag = False
+        result_lines = []
+        for line in file:
+            if "Total Energy Decomposition:" in line:
+                read_flag = True
+            if read_flag:
+                result_lines.append(line)
+    
+    receptor_lines = [line for line in result_lines if "R:A" in line]
+    binder_lines = [line for line in result_lines if "L:B" in line]
+
+    #we get the 2,3 element combined as string for label, and -3 element for value
+    receptor_labels = [line.split(",")[0] for line in receptor_lines]
+    receptor_values = [float(line.split(",")[-3]) for line in receptor_lines]
+    binder_labels = [line.split(",")[0] for line in binder_lines]
+    binder_values = [float(line.split(",")[-3]) for line in binder_lines]
+
+    def fix_index(labels, offset):
+        new_labels = []
+        for label in labels:
+            index = int(label.split(":")[-1])
+            pre = label.split(":")[:-1]
+            index = index + offset -1
+            new_label = pre[-1] + ":" + str(index) #":".join(pre) + ":" + str(index)
+            new_labels.append(new_label)
+        return new_labels
+    
+    receptor_labels = fix_index(receptor_labels, receptor_offset)
+    binder_labels = fix_index(binder_labels, binder_offset)
+
+    if plot:
+        figs_dir = os.path.join("./","fig")
+        if not os.path.exists(figs_dir):
+            os.makedirs(figs_dir)
+        
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 8))
+        fig.suptitle(exp_name)
+        ax1.bar(receptor_labels, receptor_values)
+        ax1.set_title("Receptor decomp result")
+        ax2.bar(binder_labels, binder_values)
+        ax2.set_title("Binder decomp result")
+        ax1.set_ylabel("kcal/mol")
+        ax2.set_ylabel("kcal/mol")
+        plt.setp(ax1.get_xticklabels(), rotation=60, fontsize=12)
+        plt.setp(ax2.get_xticklabels(), rotation=60, fontsize=12)
+        fig.savefig(os.path.join(figs_dir, f"{exp_name}.png"))
+        plt.close(fig)
+
+    return 0

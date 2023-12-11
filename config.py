@@ -8,10 +8,3 @@ pro_A_chain_in_pdb2 = ["R"]
 
 pro_B_chain_in_pdb1 = ["A"]
 pro_C_chain_in_pdb2 = ["H", "L"]
-
-combinations = [
-        ("pro_a-pro_b", "pro_a", "pro_b"),
-        ("pro_a-pro_c", "pro_a", "pro_c"),
-        ("pro_ab-pro_c", "pro_ab", "pro_c"),
-        ("pro_ac-pro_b", "pro_ac", "pro_b"),
-    ]

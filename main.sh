@@ -2,24 +2,65 @@
 #by TW 07th Dec 2023
 #initialize all the folder structure
 
+########################
+# 0. initialization
+########################
+
 #!/bin/bash
-mkdir ./prep
 mkdir ./mmgbsa
+mkdir ./mmgbsa/ab
+mkdir ./mmgbsa/ac
 
 mkdir ./metaD
 mkdir ./metaD/trajectory
 mkdir ./metaD/aux_file_dir
 
-#we generate the tleap input file for mmgbsa
-#python mmgbsa_tleap_gen.py 
-#adapting Denes code to run EM, NVT, NPT, prod on GROMACS
-#and generate 
+########################
+# 1. system preparation
+########################
 
-#set pro folder name.
+source /home/tj/miniconda3/etc/profile.d/conda.sh
+conda activate gmxMMPBSA
 
-gmx pdb2gmx -f ./pro/pro_a.pdb -o ./prep/pro_a_processed.gro -p ./prep/pro_a.top -water spce
-gmx pdb2gmx -f ./pro/pro_b.pdb -o ./prep/pro_b_processed.gro -p ./prep/pro_b.top -water spce
-gmx pdb2gmx -f ./pro/pro_c.pdb -o ./prep/pro_c_processed.gro -p ./prep/pro_c.top -water spce
+pdb4amber -i ./pro/pro_a.pdb -o ./pro/pro_a.amber.pdb -y >> log.txt &&
+pdb4amber -i ./pro/pro_b.pdb -o ./pro/pro_b.amber.pdb -y >> log.txt &&
+pdb4amber -i ./pro/pro_c.pdb -o ./pro/pro_c.amber.pdb -y >> log.txt &&
 
-#iteratively get in the folder and call the input_writer and gromacs_md_writer
+python mmgbsa_tleap_gen.py >> log.txt &&
 
+tleap -f ./mmgbsa/gen_complex.tleap >> log.txt &&
+
+#convert prmtop/inpcrd to gro since we only have access to gromacs...
+python file_preparation.py >> log.txt &&
+
+########################
+# 2. run simulation
+########################
+
+#deactivate gmxMMPBSA conda env. source the gromacs
+#this is due to gmxMMPBSA was not complied with CUDA.
+conda deactivate
+source /usr/local/gromacs/bin/GMXRC
+
+cd ./mmgbsa/ac
+chmod +x run_local.sh
+bash run_local.sh >> ../../log.txt &&
+
+cd ../ab
+chmod +x run_local.sh 
+bash run_local.sh >> ../../log.txt &&
+
+cd ../../
+
+########################
+# 3. post-MD analysis
+########################
+
+python mmgbsa_decomp_result_analysis.py >> log.txt
+
+
+#meta-Dynamics
+conda deactivate
+conda activate biophys_env
+
+python metaD_sim.py >> log.txt
