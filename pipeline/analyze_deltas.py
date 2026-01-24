@@ -142,25 +142,41 @@ def plot_deltas(deltas: List[Dict[str, object]], chothia: Dict[Tuple[str, int], 
         axes = [axes]
     for ax, chain in zip(axes, chains):
         subset = sorted([d for d in deltas if d['chain'] == chain], key=lambda x: x['pdb_idx'])
-        x = [d['pdb_idx'] for d in subset]
+        raw_idx = [d['pdb_idx'] for d in subset]
         y = [d['delta'] for d in subset]
+
+        # Compress gaps between disjoint regions to a small spacer to avoid large empty spans on the x-axis.
+        gap_cap = 5  # maximum virtual spacer length for large jumps
+        x = []
+        cursor = 0
+        prev = None
+        for idx in raw_idx:
+            if prev is None:
+                cursor = 0
+            else:
+                gap = idx - prev
+                spacer = 1 if gap <= 1 else min(gap - 1, gap_cap) + 1
+                cursor += spacer
+            x.append(cursor)
+            prev = idx
+
         ax.axhline(0.0, color='gray', lw=1, linestyle='--')
         ax.bar(x, y, width=0.8, align='center', color='#4C72B0')
         # Force one tick per residue in the designable set.
         ax.set_xticks(x)
         labels = []
-        for idx, d in zip(x, subset):
-            ann = chothia.get((chain, idx), {})
-            aa = ann.get('aa', '') or pdb_map.get((chain, idx), '') or d.get('aa', '') or ''
-            labels.append(f"{aa}{idx}" if aa else str(idx))
+        for pdb_idx, d in zip(raw_idx, subset):
+            ann = chothia.get((chain, pdb_idx), {})
+            aa = ann.get('aa', '') or pdb_map.get((chain, pdb_idx), '') or d.get('aa', '') or ''
+            labels.append(f"{aa}{pdb_idx}" if aa else str(pdb_idx))
         ax.set_xticklabels(labels)
         ax.set_xlim(min(x) - 0.6, max(x) + 0.6)
-        ax.set_xlabel(f"Chain {chain} PDB index")
+        ax.set_xlabel(f"Chain {chain} PDB index (compressed gaps)")
         ax.set_ylabel('Delta NLL (bound - unbound)')
         ax.set_title(f"{title} chain {chain}")
         # Top axis with Chothia labels if available
         ticks = x
-        top_labels = [chothia.get((chain, idx), {}).get('chothia', '') for idx in ticks]
+        top_labels = [chothia.get((chain, pdb_idx), {}).get('chothia', '') for pdb_idx in raw_idx]
         if any(top_labels):
             ax_top = ax.secondary_xaxis('top')
             ax_top.set_xticks(ticks)
