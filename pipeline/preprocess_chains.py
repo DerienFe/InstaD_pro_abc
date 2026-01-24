@@ -5,8 +5,9 @@ Chain extractor for ProteinMPNN workflows.
 - Emits chain sequences in order as a headerless '/'-joined string and (optionally) a small FASTA.
 """
 import argparse
+import json
 from pathlib import Path
-from typing import List
+from typing import Dict, List, Tuple
 
 from Bio import PDB
 from Bio.PDB.Polypeptide import PPBuilder
@@ -40,6 +41,60 @@ def _chain_sequence(chain: PDB.Chain.Chain) -> str:
 
 def _count_standard_res(chain: PDB.Chain.Chain) -> int:
     return sum(1 for res in chain if res.id[0] == ' ')
+
+
+def _residue_map(chain_ids: List[str], structure: PDB.Structure.Structure, source_path: Path) -> Dict[str, object]:
+    """Build per-residue map (CA-only) with pdb_idx, chain_idx, global_idx, icode, aa."""
+    rows: Dict[str, List[Dict[str, object]]] = {}
+    global_idx = 1
+    for cid in chain_ids:
+        chain = structure[0][cid]
+        chain_rows: List[Dict[str, object]] = []
+        chain_idx = 1
+        for res in chain:
+            if res.id[0] != ' ':
+                continue
+            if 'CA' not in res:
+                continue
+            try:
+                aa = seq1(res.resname)
+            except Exception:
+                continue
+            if not aa or aa == 'X':
+                continue
+            pdb_idx = int(res.id[1])
+            icode = res.id[2].strip() or ''
+            chain_rows.append({
+                'chain': cid,
+                'global_idx': global_idx,
+                'chain_idx': chain_idx,
+                'pdb_idx': pdb_idx,
+                'icode': icode,
+                'aa': aa,
+            })
+            global_idx += 1
+            chain_idx += 1
+        rows[cid] = chain_rows
+    return {
+        'pdb': str(source_path),
+        'scheme': 'pdb',
+        'chains': chain_ids,
+        'map': {cid: {'length': len(rlist), 'rows': rlist} for cid, rlist in rows.items()},
+    }
+
+
+def _write_map_files(map_payload: Dict[str, object], out_base: Path) -> None:
+    base_no_ext = out_base.with_suffix('')
+    out_json = base_no_ext.with_name(base_no_ext.name + '_map.json')
+    out_csv = base_no_ext.with_name(base_no_ext.name + '_map.csv')
+    out_json.parent.mkdir(parents=True, exist_ok=True)
+    out_json.write_text(json.dumps(map_payload, indent=2))
+
+    lines = ['chain,global_idx,chain_idx,pdb_idx,icode,aa']
+    for cid in map_payload['chains']:
+        for row in map_payload['map'][cid]['rows']:
+            lines.append(f"{row['chain']},{row['global_idx']},{row['chain_idx']},{row['pdb_idx']},{row['icode']},{row['aa']}")
+    out_csv.write_text('\n'.join(lines) + '\n')
 
 
 def extract_chains(pdb_path: Path, chain_ids: List[str], out_pdb: Path, out_fasta: Path | None, out_seq: Path | None) -> None:
@@ -79,6 +134,10 @@ def extract_chains(pdb_path: Path, chain_ids: List[str], out_pdb: Path, out_fast
     if out_fasta:
         header = f">{out_pdb.stem}|{''.join(chain_ids)}\n"
         out_fasta.write_text(header + joined + "\n")
+
+    # Emit residue map (CA-only) alongside outputs for downstream annotations.
+    map_payload = _residue_map(chain_ids, structure, out_pdb)
+    _write_map_files(map_payload, out_pdb)
 
 
 def main() -> None:

@@ -3,3 +3,5 @@ metaD/*
 presentation/Technical_Assingment_RE_Molecular_Simulation.pdf
 **.npz**
 proteinmpnn_run/results/custom_scores/6m0j_bound/6m0j_ae_score_only.npz
+**/results/**
+**/data/*_**

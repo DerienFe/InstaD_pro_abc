@@ -5,6 +5,7 @@ Score-only driver for ProteinMPNN with per-residue log-probs.
 - Accepts headerless '/'-joined design sequences or FASTA with the same content.
 """
 import argparse
+import re
 import sys
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -23,20 +24,49 @@ ALPHABET_DICT = {aa: idx for idx, aa in enumerate(ALPHABET)}
 def parse_design_ranges(raw: str | None) -> Dict[str, List[Tuple[int, int]]]:
     if not raw:
         return {}
+
+    # Accept semicolon-separated chain blocks; if missing, split on repeated "<chain>:" patterns.
+    matches = list(re.finditer(r"\s*([A-Za-z0-9]+)\s*:", raw))
+    if not matches:
+        raise ValueError(f"Invalid design ranges string '{raw}'. Expected format like 'H:10-20,30-35;L:5-9'.")
+
+    blocks: List[str] = []
+    for idx, match in enumerate(matches):
+        start = match.start()
+        end = matches[idx + 1].start() if idx + 1 < len(matches) else len(raw)
+        block = raw[start:end].strip().rstrip(';,')
+        if block:
+            blocks.append(block)
+
     out: Dict[str, List[Tuple[int, int]]] = {}
-    for block in raw.split(';'):
-        if not block.strip():
-            continue
-        chain, ranges = block.split(':')
-        spans = []
-        for rng in ranges.split(','):
+    for block in blocks:
+        chain_part, ranges_part = block.split(':', 1)
+        chain = chain_part.strip()
+        if not chain:
+            raise ValueError(f"Empty chain id in design range block '{block}'.")
+
+        ranges_text = ranges_part.strip()
+        if not ranges_text:
+            raise ValueError(f"Empty range list for chain '{chain}'.")
+
+        spans: List[Tuple[int, int]] = []
+        for rng in ranges_text.split(','):
+            rng = rng.strip()
+            if not rng:
+                continue
             if '-' in rng:
-                a, b = rng.split('-')
-                spans.append((int(a), int(b)))
+                a_str, b_str = rng.split('-', 1)
+                start, end = int(a_str), int(b_str)
             else:
-                pos = int(rng)
-                spans.append((pos, pos))
-        out[chain.strip()] = spans
+                start = end = int(rng)
+            if start > end:
+                raise ValueError(f"Range start greater than end for chain '{chain}': '{rng}'.")
+            spans.append((start, end))
+
+        if not spans:
+            raise ValueError(f"No valid ranges for chain '{chain}' in '{block}'.")
+        out[chain] = spans
+
     return out
 
 
@@ -322,7 +352,7 @@ def main() -> None:
     parser.add_argument('--pdb', required=True, type=Path)
     parser.add_argument('--design-chains', required=True, help="Chains to score/design (space/comma separated)")
     parser.add_argument('--fasta', type=Path, default=None, help="Headerless '/'-joined sequences for design chains")
-    parser.add_argument('--design-ranges', type=str, default=None, help="e.g. A:19-29,324-326,353-355;E:10-20")
+    parser.add_argument('--design-ranges', type=str, default=None, help="Semicolon-separated chain blocks; commas between ranges. e.g. H:26-33,51-57,98-116;L:24-37,92-101")
     parser.add_argument('--out-dir', required=True, type=Path)
     parser.add_argument('--num-samples', type=int, default=1000)
     parser.add_argument('--model-name', type=str, default='v_48_020')
@@ -391,11 +421,13 @@ def main() -> None:
     design_stats = f"design_residue_NLL mean={design_vals.mean():.4f}, median={np.median(design_vals):.4f}, min={design_vals.min():.4f}, max={design_vals.max():.4f}" if design_vals.size else "design_residue_NLL n/a"
 
     # Save design-only per-residue NLL to CSV for easier inspection
-    design_rows = ["chain,pdb_idx,chain_idx,global_idx,nll"]
+    design_rows = ["chain,pdb_idx,chain_idx,global_idx,aa,nll"]
     for pos in design_positions:
         gidx = pos['global_idx']
         nll_val = design_nll[gidx]
-        design_rows.append(f"{pos['chain']},{pos.get('pdb_idx','')},{pos['chain_idx']},{gidx},{nll_val:.6f}")
+        aa_idx = int(S_used[0, gidx].cpu().numpy())
+        aa = ALPHABET[aa_idx] if aa_idx < len(ALPHABET) else 'X'
+        design_rows.append(f"{pos['chain']},{pos.get('pdb_idx','')},{pos['chain_idx']},{gidx},{aa},{nll_val:.6f}")
     (args.out_dir / f"{stem}_design_nll.csv").write_text('\n'.join(design_rows) + '\n')
 
     out_txt = args.out_dir / f"{stem}_summary.txt"
