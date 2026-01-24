@@ -1,0 +1,4656 @@
+{
+  "pdb": "data/7z0x_hl.pdb",
+  "scheme": "chothia",
+  "chains": [
+    "H",
+    "L"
+  ],
+  "map": {
+    "H": {
+      "length": 224,
+      "rows": [
+        {
+          "chain": "H",
+          "global_idx": 1,
+          "chain_idx": 1,
+          "pdb_idx": 1,
+          "icode": "",
+          "chothia": "1",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 2,
+          "chain_idx": 2,
+          "pdb_idx": 2,
+          "icode": "",
+          "chothia": "2",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 3,
+          "chain_idx": 3,
+          "pdb_idx": 3,
+          "icode": "",
+          "chothia": "3",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 4,
+          "chain_idx": 4,
+          "pdb_idx": 4,
+          "icode": "",
+          "chothia": "4",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 5,
+          "chain_idx": 5,
+          "pdb_idx": 5,
+          "icode": "",
+          "chothia": "5",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 6,
+          "chain_idx": 6,
+          "pdb_idx": 6,
+          "icode": "",
+          "chothia": "6",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 7,
+          "chain_idx": 7,
+          "pdb_idx": 7,
+          "icode": "",
+          "chothia": "7",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 8,
+          "chain_idx": 8,
+          "pdb_idx": 8,
+          "icode": "",
+          "chothia": "8",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 9,
+          "chain_idx": 9,
+          "pdb_idx": 9,
+          "icode": "",
+          "chothia": "9",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 10,
+          "chain_idx": 10,
+          "pdb_idx": 10,
+          "icode": "",
+          "chothia": "10",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 11,
+          "chain_idx": 11,
+          "pdb_idx": 11,
+          "icode": "",
+          "chothia": "11",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 12,
+          "chain_idx": 12,
+          "pdb_idx": 12,
+          "icode": "",
+          "chothia": "12",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 13,
+          "chain_idx": 13,
+          "pdb_idx": 13,
+          "icode": "",
+          "chothia": "13",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 14,
+          "chain_idx": 14,
+          "pdb_idx": 14,
+          "icode": "",
+          "chothia": "14",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 15,
+          "chain_idx": 15,
+          "pdb_idx": 15,
+          "icode": "",
+          "chothia": "15",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 16,
+          "chain_idx": 16,
+          "pdb_idx": 16,
+          "icode": "",
+          "chothia": "16",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 17,
+          "chain_idx": 17,
+          "pdb_idx": 17,
+          "icode": "",
+          "chothia": "17",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 18,
+          "chain_idx": 18,
+          "pdb_idx": 18,
+          "icode": "",
+          "chothia": "18",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 19,
+          "chain_idx": 19,
+          "pdb_idx": 19,
+          "icode": "",
+          "chothia": "19",
+          "aa": "R",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 20,
+          "chain_idx": 20,
+          "pdb_idx": 20,
+          "icode": "",
+          "chothia": "20",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 21,
+          "chain_idx": 21,
+          "pdb_idx": 21,
+          "icode": "",
+          "chothia": "21",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 22,
+          "chain_idx": 22,
+          "pdb_idx": 22,
+          "icode": "",
+          "chothia": "22",
+          "aa": "C",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 23,
+          "chain_idx": 23,
+          "pdb_idx": 23,
+          "icode": "",
+          "chothia": "23",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 24,
+          "chain_idx": 24,
+          "pdb_idx": 24,
+          "icode": "",
+          "chothia": "24",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 25,
+          "chain_idx": 25,
+          "pdb_idx": 25,
+          "icode": "",
+          "chothia": "25",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 26,
+          "chain_idx": 26,
+          "pdb_idx": 26,
+          "icode": "",
+          "chothia": "26",
+          "aa": "G",
+          "cdr": "H1"
+        },
+        {
+          "chain": "H",
+          "global_idx": 27,
+          "chain_idx": 27,
+          "pdb_idx": 27,
+          "icode": "",
+          "chothia": "27",
+          "aa": "F",
+          "cdr": "H1"
+        },
+        {
+          "chain": "H",
+          "global_idx": 28,
+          "chain_idx": 28,
+          "pdb_idx": 28,
+          "icode": "",
+          "chothia": "28",
+          "aa": "T",
+          "cdr": "H1"
+        },
+        {
+          "chain": "H",
+          "global_idx": 29,
+          "chain_idx": 29,
+          "pdb_idx": 29,
+          "icode": "",
+          "chothia": "29",
+          "aa": "V",
+          "cdr": "H1"
+        },
+        {
+          "chain": "H",
+          "global_idx": 30,
+          "chain_idx": 30,
+          "pdb_idx": 30,
+          "icode": "",
+          "chothia": "30",
+          "aa": "S",
+          "cdr": "H1"
+        },
+        {
+          "chain": "H",
+          "global_idx": 31,
+          "chain_idx": 31,
+          "pdb_idx": 31,
+          "icode": "",
+          "chothia": "31",
+          "aa": "S",
+          "cdr": "H1"
+        },
+        {
+          "chain": "H",
+          "global_idx": 32,
+          "chain_idx": 32,
+          "pdb_idx": 32,
+          "icode": "",
+          "chothia": "32",
+          "aa": "N",
+          "cdr": "H1"
+        },
+        {
+          "chain": "H",
+          "global_idx": 33,
+          "chain_idx": 33,
+          "pdb_idx": 33,
+          "icode": "",
+          "chothia": "33",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 34,
+          "chain_idx": 34,
+          "pdb_idx": 34,
+          "icode": "",
+          "chothia": "34",
+          "aa": "M",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 35,
+          "chain_idx": 35,
+          "pdb_idx": 35,
+          "icode": "",
+          "chothia": "35",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 36,
+          "chain_idx": 36,
+          "pdb_idx": 36,
+          "icode": "",
+          "chothia": "36",
+          "aa": "W",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 37,
+          "chain_idx": 37,
+          "pdb_idx": 37,
+          "icode": "",
+          "chothia": "37",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 38,
+          "chain_idx": 38,
+          "pdb_idx": 38,
+          "icode": "",
+          "chothia": "38",
+          "aa": "R",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 39,
+          "chain_idx": 39,
+          "pdb_idx": 39,
+          "icode": "",
+          "chothia": "39",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 40,
+          "chain_idx": 40,
+          "pdb_idx": 40,
+          "icode": "",
+          "chothia": "40",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 41,
+          "chain_idx": 41,
+          "pdb_idx": 41,
+          "icode": "",
+          "chothia": "41",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 42,
+          "chain_idx": 42,
+          "pdb_idx": 42,
+          "icode": "",
+          "chothia": "42",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 43,
+          "chain_idx": 43,
+          "pdb_idx": 43,
+          "icode": "",
+          "chothia": "43",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 44,
+          "chain_idx": 44,
+          "pdb_idx": 44,
+          "icode": "",
+          "chothia": "44",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 45,
+          "chain_idx": 45,
+          "pdb_idx": 45,
+          "icode": "",
+          "chothia": "45",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 46,
+          "chain_idx": 46,
+          "pdb_idx": 46,
+          "icode": "",
+          "chothia": "46",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 47,
+          "chain_idx": 47,
+          "pdb_idx": 47,
+          "icode": "",
+          "chothia": "47",
+          "aa": "W",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 48,
+          "chain_idx": 48,
+          "pdb_idx": 48,
+          "icode": "",
+          "chothia": "48",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 49,
+          "chain_idx": 49,
+          "pdb_idx": 49,
+          "icode": "",
+          "chothia": "49",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 50,
+          "chain_idx": 50,
+          "pdb_idx": 50,
+          "icode": "",
+          "chothia": "50",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 51,
+          "chain_idx": 51,
+          "pdb_idx": 51,
+          "icode": "",
+          "chothia": "51",
+          "aa": "I",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 52,
+          "chain_idx": 52,
+          "pdb_idx": 52,
+          "icode": "",
+          "chothia": "52",
+          "aa": "Y",
+          "cdr": "H2"
+        },
+        {
+          "chain": "H",
+          "global_idx": 53,
+          "chain_idx": 53,
+          "pdb_idx": 53,
+          "icode": "",
+          "chothia": "53",
+          "aa": "S",
+          "cdr": "H2"
+        },
+        {
+          "chain": "H",
+          "global_idx": 54,
+          "chain_idx": 54,
+          "pdb_idx": 54,
+          "icode": "",
+          "chothia": "54",
+          "aa": "G",
+          "cdr": "H2"
+        },
+        {
+          "chain": "H",
+          "global_idx": 55,
+          "chain_idx": 55,
+          "pdb_idx": 55,
+          "icode": "",
+          "chothia": "55",
+          "aa": "D",
+          "cdr": "H2"
+        },
+        {
+          "chain": "H",
+          "global_idx": 56,
+          "chain_idx": 56,
+          "pdb_idx": 56,
+          "icode": "",
+          "chothia": "56",
+          "aa": "S",
+          "cdr": "H2"
+        },
+        {
+          "chain": "H",
+          "global_idx": 57,
+          "chain_idx": 57,
+          "pdb_idx": 57,
+          "icode": "",
+          "chothia": "57",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 58,
+          "chain_idx": 58,
+          "pdb_idx": 58,
+          "icode": "",
+          "chothia": "58",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 59,
+          "chain_idx": 59,
+          "pdb_idx": 59,
+          "icode": "",
+          "chothia": "59",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 60,
+          "chain_idx": 60,
+          "pdb_idx": 60,
+          "icode": "",
+          "chothia": "60",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 61,
+          "chain_idx": 61,
+          "pdb_idx": 61,
+          "icode": "",
+          "chothia": "61",
+          "aa": "D",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 62,
+          "chain_idx": 62,
+          "pdb_idx": 62,
+          "icode": "",
+          "chothia": "62",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 63,
+          "chain_idx": 63,
+          "pdb_idx": 63,
+          "icode": "",
+          "chothia": "63",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 64,
+          "chain_idx": 64,
+          "pdb_idx": 64,
+          "icode": "",
+          "chothia": "64",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 65,
+          "chain_idx": 65,
+          "pdb_idx": 65,
+          "icode": "",
+          "chothia": "65",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 66,
+          "chain_idx": 66,
+          "pdb_idx": 66,
+          "icode": "",
+          "chothia": "66",
+          "aa": "R",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 67,
+          "chain_idx": 67,
+          "pdb_idx": 67,
+          "icode": "",
+          "chothia": "67",
+          "aa": "F",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 68,
+          "chain_idx": 68,
+          "pdb_idx": 68,
+          "icode": "",
+          "chothia": "68",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 69,
+          "chain_idx": 69,
+          "pdb_idx": 69,
+          "icode": "",
+          "chothia": "69",
+          "aa": "I",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 70,
+          "chain_idx": 70,
+          "pdb_idx": 70,
+          "icode": "",
+          "chothia": "70",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 71,
+          "chain_idx": 71,
+          "pdb_idx": 71,
+          "icode": "",
+          "chothia": "71",
+          "aa": "R",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 72,
+          "chain_idx": 72,
+          "pdb_idx": 72,
+          "icode": "",
+          "chothia": "72",
+          "aa": "H",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 73,
+          "chain_idx": 73,
+          "pdb_idx": 73,
+          "icode": "",
+          "chothia": "73",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 74,
+          "chain_idx": 74,
+          "pdb_idx": 74,
+          "icode": "",
+          "chothia": "74",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 75,
+          "chain_idx": 75,
+          "pdb_idx": 75,
+          "icode": "",
+          "chothia": "75",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 76,
+          "chain_idx": 76,
+          "pdb_idx": 76,
+          "icode": "",
+          "chothia": "76",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 77,
+          "chain_idx": 77,
+          "pdb_idx": 77,
+          "icode": "",
+          "chothia": "77",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 78,
+          "chain_idx": 78,
+          "pdb_idx": 78,
+          "icode": "",
+          "chothia": "78",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 79,
+          "chain_idx": 79,
+          "pdb_idx": 79,
+          "icode": "",
+          "chothia": "79",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 80,
+          "chain_idx": 80,
+          "pdb_idx": 80,
+          "icode": "",
+          "chothia": "80",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 81,
+          "chain_idx": 81,
+          "pdb_idx": 81,
+          "icode": "",
+          "chothia": "81",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 82,
+          "chain_idx": 82,
+          "pdb_idx": 82,
+          "icode": "",
+          "chothia": "82",
+          "aa": "M",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 83,
+          "chain_idx": 83,
+          "pdb_idx": 82,
+          "icode": "A",
+          "chothia": "82A",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 84,
+          "chain_idx": 84,
+          "pdb_idx": 82,
+          "icode": "B",
+          "chothia": "82B",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 85,
+          "chain_idx": 85,
+          "pdb_idx": 82,
+          "icode": "C",
+          "chothia": "82C",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 86,
+          "chain_idx": 86,
+          "pdb_idx": 83,
+          "icode": "",
+          "chothia": "83",
+          "aa": "R",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 87,
+          "chain_idx": 87,
+          "pdb_idx": 84,
+          "icode": "",
+          "chothia": "84",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 88,
+          "chain_idx": 88,
+          "pdb_idx": 85,
+          "icode": "",
+          "chothia": "85",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 89,
+          "chain_idx": 89,
+          "pdb_idx": 86,
+          "icode": "",
+          "chothia": "86",
+          "aa": "D",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 90,
+          "chain_idx": 90,
+          "pdb_idx": 87,
+          "icode": "",
+          "chothia": "87",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 91,
+          "chain_idx": 91,
+          "pdb_idx": 88,
+          "icode": "",
+          "chothia": "88",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 92,
+          "chain_idx": 92,
+          "pdb_idx": 89,
+          "icode": "",
+          "chothia": "89",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 93,
+          "chain_idx": 93,
+          "pdb_idx": 90,
+          "icode": "",
+          "chothia": "90",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 94,
+          "chain_idx": 94,
+          "pdb_idx": 91,
+          "icode": "",
+          "chothia": "91",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 95,
+          "chain_idx": 95,
+          "pdb_idx": 92,
+          "icode": "",
+          "chothia": "92",
+          "aa": "C",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 96,
+          "chain_idx": 96,
+          "pdb_idx": 93,
+          "icode": "",
+          "chothia": "93",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 97,
+          "chain_idx": 97,
+          "pdb_idx": 94,
+          "icode": "",
+          "chothia": "94",
+          "aa": "R",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 98,
+          "chain_idx": 98,
+          "pdb_idx": 95,
+          "icode": "",
+          "chothia": "95",
+          "aa": "L",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 99,
+          "chain_idx": 99,
+          "pdb_idx": 96,
+          "icode": "",
+          "chothia": "96",
+          "aa": "V",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 100,
+          "chain_idx": 100,
+          "pdb_idx": 97,
+          "icode": "",
+          "chothia": "97",
+          "aa": "G",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 101,
+          "chain_idx": 101,
+          "pdb_idx": 98,
+          "icode": "",
+          "chothia": "98",
+          "aa": "A",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 102,
+          "chain_idx": 102,
+          "pdb_idx": 99,
+          "icode": "",
+          "chothia": "99",
+          "aa": "L",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 103,
+          "chain_idx": 103,
+          "pdb_idx": 100,
+          "icode": "",
+          "chothia": "100",
+          "aa": "T",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 104,
+          "chain_idx": 104,
+          "pdb_idx": 100,
+          "icode": "A",
+          "chothia": "100A",
+          "aa": "N",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 105,
+          "chain_idx": 105,
+          "pdb_idx": 100,
+          "icode": "B",
+          "chothia": "100B",
+          "aa": "I",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 106,
+          "chain_idx": 106,
+          "pdb_idx": 100,
+          "icode": "C",
+          "chothia": "100C",
+          "aa": "V",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 107,
+          "chain_idx": 107,
+          "pdb_idx": 100,
+          "icode": "D",
+          "chothia": "100D",
+          "aa": "V",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 108,
+          "chain_idx": 108,
+          "pdb_idx": 100,
+          "icode": "E",
+          "chothia": "100E",
+          "aa": "S",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 109,
+          "chain_idx": 109,
+          "pdb_idx": 100,
+          "icode": "F",
+          "chothia": "100F",
+          "aa": "G",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 110,
+          "chain_idx": 110,
+          "pdb_idx": 100,
+          "icode": "G",
+          "chothia": "100G",
+          "aa": "D",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 111,
+          "chain_idx": 111,
+          "pdb_idx": 100,
+          "icode": "H",
+          "chothia": "100H",
+          "aa": "G",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 112,
+          "chain_idx": 112,
+          "pdb_idx": 100,
+          "icode": "I",
+          "chothia": "100I",
+          "aa": "G",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 113,
+          "chain_idx": 113,
+          "pdb_idx": 100,
+          "icode": "J",
+          "chothia": "100J",
+          "aa": "A",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 114,
+          "chain_idx": 114,
+          "pdb_idx": 100,
+          "icode": "K",
+          "chothia": "100K",
+          "aa": "F",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 115,
+          "chain_idx": 115,
+          "pdb_idx": 101,
+          "icode": "",
+          "chothia": "101",
+          "aa": "D",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 116,
+          "chain_idx": 116,
+          "pdb_idx": 102,
+          "icode": "",
+          "chothia": "102",
+          "aa": "I",
+          "cdr": "H3"
+        },
+        {
+          "chain": "H",
+          "global_idx": 117,
+          "chain_idx": 117,
+          "pdb_idx": 103,
+          "icode": "",
+          "chothia": "103",
+          "aa": "W",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 118,
+          "chain_idx": 118,
+          "pdb_idx": 104,
+          "icode": "",
+          "chothia": "104",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 119,
+          "chain_idx": 119,
+          "pdb_idx": 105,
+          "icode": "",
+          "chothia": "105",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 120,
+          "chain_idx": 120,
+          "pdb_idx": 106,
+          "icode": "",
+          "chothia": "106",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 121,
+          "chain_idx": 121,
+          "pdb_idx": 107,
+          "icode": "",
+          "chothia": "107",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 122,
+          "chain_idx": 122,
+          "pdb_idx": 108,
+          "icode": "",
+          "chothia": "108",
+          "aa": "M",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 123,
+          "chain_idx": 123,
+          "pdb_idx": 109,
+          "icode": "",
+          "chothia": "109",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 124,
+          "chain_idx": 124,
+          "pdb_idx": 110,
+          "icode": "",
+          "chothia": "110",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 125,
+          "chain_idx": 125,
+          "pdb_idx": 111,
+          "icode": "",
+          "chothia": "111",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 126,
+          "chain_idx": 126,
+          "pdb_idx": 112,
+          "icode": "",
+          "chothia": "112",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 127,
+          "chain_idx": 127,
+          "pdb_idx": 113,
+          "icode": "",
+          "chothia": "113",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 128,
+          "chain_idx": 128,
+          "pdb_idx": 114,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 129,
+          "chain_idx": 129,
+          "pdb_idx": 115,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 130,
+          "chain_idx": 130,
+          "pdb_idx": 116,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 131,
+          "chain_idx": 131,
+          "pdb_idx": 117,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 132,
+          "chain_idx": 132,
+          "pdb_idx": 118,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 133,
+          "chain_idx": 133,
+          "pdb_idx": 119,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 134,
+          "chain_idx": 134,
+          "pdb_idx": 120,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 135,
+          "chain_idx": 135,
+          "pdb_idx": 121,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 136,
+          "chain_idx": 136,
+          "pdb_idx": 122,
+          "icode": "",
+          "chothia": "",
+          "aa": "F",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 137,
+          "chain_idx": 137,
+          "pdb_idx": 123,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 138,
+          "chain_idx": 138,
+          "pdb_idx": 124,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 139,
+          "chain_idx": 139,
+          "pdb_idx": 125,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 140,
+          "chain_idx": 140,
+          "pdb_idx": 126,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 141,
+          "chain_idx": 141,
+          "pdb_idx": 127,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 142,
+          "chain_idx": 142,
+          "pdb_idx": 134,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 143,
+          "chain_idx": 143,
+          "pdb_idx": 135,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 144,
+          "chain_idx": 144,
+          "pdb_idx": 136,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 145,
+          "chain_idx": 145,
+          "pdb_idx": 137,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 146,
+          "chain_idx": 146,
+          "pdb_idx": 138,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 147,
+          "chain_idx": 147,
+          "pdb_idx": 139,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 148,
+          "chain_idx": 148,
+          "pdb_idx": 140,
+          "icode": "",
+          "chothia": "",
+          "aa": "C",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 149,
+          "chain_idx": 149,
+          "pdb_idx": 141,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 150,
+          "chain_idx": 150,
+          "pdb_idx": 142,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 151,
+          "chain_idx": 151,
+          "pdb_idx": 143,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 152,
+          "chain_idx": 152,
+          "pdb_idx": 144,
+          "icode": "",
+          "chothia": "",
+          "aa": "D",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 153,
+          "chain_idx": 153,
+          "pdb_idx": 145,
+          "icode": "",
+          "chothia": "",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 154,
+          "chain_idx": 154,
+          "pdb_idx": 146,
+          "icode": "",
+          "chothia": "",
+          "aa": "F",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 155,
+          "chain_idx": 155,
+          "pdb_idx": 147,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 156,
+          "chain_idx": 156,
+          "pdb_idx": 148,
+          "icode": "",
+          "chothia": "",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 157,
+          "chain_idx": 157,
+          "pdb_idx": 149,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 158,
+          "chain_idx": 158,
+          "pdb_idx": 150,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 159,
+          "chain_idx": 159,
+          "pdb_idx": 151,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 160,
+          "chain_idx": 160,
+          "pdb_idx": 152,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 161,
+          "chain_idx": 161,
+          "pdb_idx": 153,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 162,
+          "chain_idx": 162,
+          "pdb_idx": 154,
+          "icode": "",
+          "chothia": "",
+          "aa": "W",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 163,
+          "chain_idx": 163,
+          "pdb_idx": 155,
+          "icode": "",
+          "chothia": "",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 164,
+          "chain_idx": 164,
+          "pdb_idx": 156,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 165,
+          "chain_idx": 165,
+          "pdb_idx": 157,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 166,
+          "chain_idx": 166,
+          "pdb_idx": 158,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 167,
+          "chain_idx": 167,
+          "pdb_idx": 159,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 168,
+          "chain_idx": 168,
+          "pdb_idx": 160,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 169,
+          "chain_idx": 169,
+          "pdb_idx": 161,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 170,
+          "chain_idx": 170,
+          "pdb_idx": 162,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 171,
+          "chain_idx": 171,
+          "pdb_idx": 163,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 172,
+          "chain_idx": 172,
+          "pdb_idx": 164,
+          "icode": "",
+          "chothia": "",
+          "aa": "H",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 173,
+          "chain_idx": 173,
+          "pdb_idx": 165,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 174,
+          "chain_idx": 174,
+          "pdb_idx": 166,
+          "icode": "",
+          "chothia": "",
+          "aa": "F",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 175,
+          "chain_idx": 175,
+          "pdb_idx": 167,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 176,
+          "chain_idx": 176,
+          "pdb_idx": 168,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 177,
+          "chain_idx": 177,
+          "pdb_idx": 169,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 178,
+          "chain_idx": 178,
+          "pdb_idx": 170,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 179,
+          "chain_idx": 179,
+          "pdb_idx": 171,
+          "icode": "",
+          "chothia": "",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 180,
+          "chain_idx": 180,
+          "pdb_idx": 172,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 181,
+          "chain_idx": 181,
+          "pdb_idx": 173,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 182,
+          "chain_idx": 182,
+          "pdb_idx": 174,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 183,
+          "chain_idx": 183,
+          "pdb_idx": 175,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 184,
+          "chain_idx": 184,
+          "pdb_idx": 176,
+          "icode": "",
+          "chothia": "",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 185,
+          "chain_idx": 185,
+          "pdb_idx": 177,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 186,
+          "chain_idx": 186,
+          "pdb_idx": 178,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 187,
+          "chain_idx": 187,
+          "pdb_idx": 179,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 188,
+          "chain_idx": 188,
+          "pdb_idx": 180,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 189,
+          "chain_idx": 189,
+          "pdb_idx": 181,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 190,
+          "chain_idx": 190,
+          "pdb_idx": 182,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 191,
+          "chain_idx": 191,
+          "pdb_idx": 183,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 192,
+          "chain_idx": 192,
+          "pdb_idx": 184,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 193,
+          "chain_idx": 193,
+          "pdb_idx": 185,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 194,
+          "chain_idx": 194,
+          "pdb_idx": 186,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 195,
+          "chain_idx": 195,
+          "pdb_idx": 187,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 196,
+          "chain_idx": 196,
+          "pdb_idx": 188,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 197,
+          "chain_idx": 197,
+          "pdb_idx": 189,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 198,
+          "chain_idx": 198,
+          "pdb_idx": 190,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 199,
+          "chain_idx": 199,
+          "pdb_idx": 191,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 200,
+          "chain_idx": 200,
+          "pdb_idx": 192,
+          "icode": "",
+          "chothia": "",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 201,
+          "chain_idx": 201,
+          "pdb_idx": 193,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 202,
+          "chain_idx": 202,
+          "pdb_idx": 194,
+          "icode": "",
+          "chothia": "",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 203,
+          "chain_idx": 203,
+          "pdb_idx": 195,
+          "icode": "",
+          "chothia": "",
+          "aa": "I",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 204,
+          "chain_idx": 204,
+          "pdb_idx": 196,
+          "icode": "",
+          "chothia": "",
+          "aa": "C",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 205,
+          "chain_idx": 205,
+          "pdb_idx": 197,
+          "icode": "",
+          "chothia": "",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 206,
+          "chain_idx": 206,
+          "pdb_idx": 198,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 207,
+          "chain_idx": 207,
+          "pdb_idx": 199,
+          "icode": "",
+          "chothia": "",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 208,
+          "chain_idx": 208,
+          "pdb_idx": 200,
+          "icode": "",
+          "chothia": "",
+          "aa": "H",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 209,
+          "chain_idx": 209,
+          "pdb_idx": 201,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 210,
+          "chain_idx": 210,
+          "pdb_idx": 202,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 211,
+          "chain_idx": 211,
+          "pdb_idx": 203,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 212,
+          "chain_idx": 212,
+          "pdb_idx": 204,
+          "icode": "",
+          "chothia": "",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 213,
+          "chain_idx": 213,
+          "pdb_idx": 205,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 214,
+          "chain_idx": 214,
+          "pdb_idx": 206,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 215,
+          "chain_idx": 215,
+          "pdb_idx": 207,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 216,
+          "chain_idx": 216,
+          "pdb_idx": 208,
+          "icode": "",
+          "chothia": "",
+          "aa": "D",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 217,
+          "chain_idx": 217,
+          "pdb_idx": 209,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 218,
+          "chain_idx": 218,
+          "pdb_idx": 210,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 219,
+          "chain_idx": 219,
+          "pdb_idx": 211,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 220,
+          "chain_idx": 220,
+          "pdb_idx": 212,
+          "icode": "",
+          "chothia": "",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 221,
+          "chain_idx": 221,
+          "pdb_idx": 213,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 222,
+          "chain_idx": 222,
+          "pdb_idx": 214,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 223,
+          "chain_idx": 223,
+          "pdb_idx": 215,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "H",
+          "global_idx": 224,
+          "chain_idx": 224,
+          "pdb_idx": 216,
+          "icode": "",
+          "chothia": "",
+          "aa": "C",
+          "cdr": ""
+        }
+      ],
+      "cdrs": {
+        "H1": {
+          "chain_idx": [
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "pdb_idx": [
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "chothia": [
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32"
+          ],
+          "sequence": "GFTVSSN"
+        },
+        "H2": {
+          "chain_idx": [
+            52,
+            53,
+            54,
+            55,
+            56
+          ],
+          "pdb_idx": [
+            52,
+            53,
+            54,
+            55,
+            56
+          ],
+          "chothia": [
+            "52",
+            "53",
+            "54",
+            "55",
+            "56"
+          ],
+          "sequence": "YSGDS"
+        },
+        "H3": {
+          "chain_idx": [
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116
+          ],
+          "pdb_idx": [
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            101,
+            102
+          ],
+          "chothia": [
+            "95",
+            "96",
+            "97",
+            "98",
+            "99",
+            "100",
+            "100A",
+            "100B",
+            "100C",
+            "100D",
+            "100E",
+            "100F",
+            "100G",
+            "100H",
+            "100I",
+            "100J",
+            "100K",
+            "101",
+            "102"
+          ],
+          "sequence": "LVGALTNIVVSGDGGAFDI"
+        }
+      },
+      "type": "H"
+    },
+    "L": {
+      "length": 215,
+      "rows": [
+        {
+          "chain": "L",
+          "global_idx": 225,
+          "chain_idx": 1,
+          "pdb_idx": 1,
+          "icode": "",
+          "chothia": "1",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 226,
+          "chain_idx": 2,
+          "pdb_idx": 2,
+          "icode": "",
+          "chothia": "2",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 227,
+          "chain_idx": 3,
+          "pdb_idx": 3,
+          "icode": "",
+          "chothia": "3",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 228,
+          "chain_idx": 4,
+          "pdb_idx": 4,
+          "icode": "",
+          "chothia": "4",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 229,
+          "chain_idx": 5,
+          "pdb_idx": 5,
+          "icode": "",
+          "chothia": "5",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 230,
+          "chain_idx": 6,
+          "pdb_idx": 6,
+          "icode": "",
+          "chothia": "6",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 231,
+          "chain_idx": 7,
+          "pdb_idx": 7,
+          "icode": "",
+          "chothia": "7",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 232,
+          "chain_idx": 8,
+          "pdb_idx": 8,
+          "icode": "",
+          "chothia": "8",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 233,
+          "chain_idx": 9,
+          "pdb_idx": 9,
+          "icode": "",
+          "chothia": "9",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 234,
+          "chain_idx": 10,
+          "pdb_idx": 11,
+          "icode": "",
+          "chothia": "10",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 235,
+          "chain_idx": 11,
+          "pdb_idx": 12,
+          "icode": "",
+          "chothia": "11",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 236,
+          "chain_idx": 12,
+          "pdb_idx": 13,
+          "icode": "",
+          "chothia": "12",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 237,
+          "chain_idx": 13,
+          "pdb_idx": 14,
+          "icode": "",
+          "chothia": "13",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 238,
+          "chain_idx": 14,
+          "pdb_idx": 15,
+          "icode": "",
+          "chothia": "14",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 239,
+          "chain_idx": 15,
+          "pdb_idx": 16,
+          "icode": "",
+          "chothia": "15",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 240,
+          "chain_idx": 16,
+          "pdb_idx": 17,
+          "icode": "",
+          "chothia": "16",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 241,
+          "chain_idx": 17,
+          "pdb_idx": 18,
+          "icode": "",
+          "chothia": "17",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 242,
+          "chain_idx": 18,
+          "pdb_idx": 19,
+          "icode": "",
+          "chothia": "18",
+          "aa": "I",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 243,
+          "chain_idx": 19,
+          "pdb_idx": 20,
+          "icode": "",
+          "chothia": "19",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 244,
+          "chain_idx": 20,
+          "pdb_idx": 21,
+          "icode": "",
+          "chothia": "20",
+          "aa": "I",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 245,
+          "chain_idx": 21,
+          "pdb_idx": 22,
+          "icode": "",
+          "chothia": "21",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 246,
+          "chain_idx": 22,
+          "pdb_idx": 23,
+          "icode": "",
+          "chothia": "22",
+          "aa": "C",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 247,
+          "chain_idx": 23,
+          "pdb_idx": 24,
+          "icode": "",
+          "chothia": "23",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 248,
+          "chain_idx": 24,
+          "pdb_idx": 25,
+          "icode": "",
+          "chothia": "24",
+          "aa": "G",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 249,
+          "chain_idx": 25,
+          "pdb_idx": 26,
+          "icode": "",
+          "chothia": "25",
+          "aa": "T",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 250,
+          "chain_idx": 26,
+          "pdb_idx": 27,
+          "icode": "",
+          "chothia": "26",
+          "aa": "S",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 251,
+          "chain_idx": 27,
+          "pdb_idx": 27,
+          "icode": "A",
+          "chothia": "27",
+          "aa": "S",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 252,
+          "chain_idx": 28,
+          "pdb_idx": 27,
+          "icode": "B",
+          "chothia": "28",
+          "aa": "D",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 253,
+          "chain_idx": 29,
+          "pdb_idx": 27,
+          "icode": "C",
+          "chothia": "29",
+          "aa": "V",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 254,
+          "chain_idx": 30,
+          "pdb_idx": 28,
+          "icode": "",
+          "chothia": "30",
+          "aa": "G",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 255,
+          "chain_idx": 31,
+          "pdb_idx": 29,
+          "icode": "",
+          "chothia": "30A",
+          "aa": "S",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 256,
+          "chain_idx": 32,
+          "pdb_idx": 30,
+          "icode": "",
+          "chothia": "30B",
+          "aa": "Y",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 257,
+          "chain_idx": 33,
+          "pdb_idx": 31,
+          "icode": "",
+          "chothia": "30C",
+          "aa": "N",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 258,
+          "chain_idx": 34,
+          "pdb_idx": 32,
+          "icode": "",
+          "chothia": "31",
+          "aa": "L",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 259,
+          "chain_idx": 35,
+          "pdb_idx": 33,
+          "icode": "",
+          "chothia": "32",
+          "aa": "V",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 260,
+          "chain_idx": 36,
+          "pdb_idx": 34,
+          "icode": "",
+          "chothia": "33",
+          "aa": "S",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 261,
+          "chain_idx": 37,
+          "pdb_idx": 35,
+          "icode": "",
+          "chothia": "34",
+          "aa": "W",
+          "cdr": "L1"
+        },
+        {
+          "chain": "L",
+          "global_idx": 262,
+          "chain_idx": 38,
+          "pdb_idx": 36,
+          "icode": "",
+          "chothia": "35",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 263,
+          "chain_idx": 39,
+          "pdb_idx": 37,
+          "icode": "",
+          "chothia": "36",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 264,
+          "chain_idx": 40,
+          "pdb_idx": 38,
+          "icode": "",
+          "chothia": "37",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 265,
+          "chain_idx": 41,
+          "pdb_idx": 39,
+          "icode": "",
+          "chothia": "38",
+          "aa": "H",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 266,
+          "chain_idx": 42,
+          "pdb_idx": 40,
+          "icode": "",
+          "chothia": "39",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 267,
+          "chain_idx": 43,
+          "pdb_idx": 41,
+          "icode": "",
+          "chothia": "40",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 268,
+          "chain_idx": 44,
+          "pdb_idx": 42,
+          "icode": "",
+          "chothia": "41",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 269,
+          "chain_idx": 45,
+          "pdb_idx": 43,
+          "icode": "",
+          "chothia": "42",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 270,
+          "chain_idx": 46,
+          "pdb_idx": 44,
+          "icode": "",
+          "chothia": "43",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 271,
+          "chain_idx": 47,
+          "pdb_idx": 45,
+          "icode": "",
+          "chothia": "44",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 272,
+          "chain_idx": 48,
+          "pdb_idx": 46,
+          "icode": "",
+          "chothia": "45",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 273,
+          "chain_idx": 49,
+          "pdb_idx": 47,
+          "icode": "",
+          "chothia": "46",
+          "aa": "M",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 274,
+          "chain_idx": 50,
+          "pdb_idx": 48,
+          "icode": "",
+          "chothia": "47",
+          "aa": "I",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 275,
+          "chain_idx": 51,
+          "pdb_idx": 49,
+          "icode": "",
+          "chothia": "48",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 276,
+          "chain_idx": 52,
+          "pdb_idx": 50,
+          "icode": "",
+          "chothia": "49",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 277,
+          "chain_idx": 53,
+          "pdb_idx": 51,
+          "icode": "",
+          "chothia": "50",
+          "aa": "V",
+          "cdr": "L2"
+        },
+        {
+          "chain": "L",
+          "global_idx": 278,
+          "chain_idx": 54,
+          "pdb_idx": 52,
+          "icode": "",
+          "chothia": "51",
+          "aa": "S",
+          "cdr": "L2"
+        },
+        {
+          "chain": "L",
+          "global_idx": 279,
+          "chain_idx": 55,
+          "pdb_idx": 53,
+          "icode": "",
+          "chothia": "52",
+          "aa": "K",
+          "cdr": "L2"
+        },
+        {
+          "chain": "L",
+          "global_idx": 280,
+          "chain_idx": 56,
+          "pdb_idx": 54,
+          "icode": "",
+          "chothia": "53",
+          "aa": "R",
+          "cdr": "L2"
+        },
+        {
+          "chain": "L",
+          "global_idx": 281,
+          "chain_idx": 57,
+          "pdb_idx": 55,
+          "icode": "",
+          "chothia": "54",
+          "aa": "P",
+          "cdr": "L2"
+        },
+        {
+          "chain": "L",
+          "global_idx": 282,
+          "chain_idx": 58,
+          "pdb_idx": 56,
+          "icode": "",
+          "chothia": "55",
+          "aa": "S",
+          "cdr": "L2"
+        },
+        {
+          "chain": "L",
+          "global_idx": 283,
+          "chain_idx": 59,
+          "pdb_idx": 57,
+          "icode": "",
+          "chothia": "56",
+          "aa": "G",
+          "cdr": "L2"
+        },
+        {
+          "chain": "L",
+          "global_idx": 284,
+          "chain_idx": 60,
+          "pdb_idx": 58,
+          "icode": "",
+          "chothia": "57",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 285,
+          "chain_idx": 61,
+          "pdb_idx": 59,
+          "icode": "",
+          "chothia": "58",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 286,
+          "chain_idx": 62,
+          "pdb_idx": 60,
+          "icode": "",
+          "chothia": "59",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 287,
+          "chain_idx": 63,
+          "pdb_idx": 61,
+          "icode": "",
+          "chothia": "60",
+          "aa": "R",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 288,
+          "chain_idx": 64,
+          "pdb_idx": 62,
+          "icode": "",
+          "chothia": "61",
+          "aa": "F",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 289,
+          "chain_idx": 65,
+          "pdb_idx": 63,
+          "icode": "",
+          "chothia": "62",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 290,
+          "chain_idx": 66,
+          "pdb_idx": 64,
+          "icode": "",
+          "chothia": "63",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 291,
+          "chain_idx": 67,
+          "pdb_idx": 65,
+          "icode": "",
+          "chothia": "64",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 292,
+          "chain_idx": 68,
+          "pdb_idx": 66,
+          "icode": "",
+          "chothia": "65",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 293,
+          "chain_idx": 69,
+          "pdb_idx": 67,
+          "icode": "",
+          "chothia": "66",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 294,
+          "chain_idx": 70,
+          "pdb_idx": 68,
+          "icode": "",
+          "chothia": "67",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 295,
+          "chain_idx": 71,
+          "pdb_idx": 69,
+          "icode": "",
+          "chothia": "68",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 296,
+          "chain_idx": 72,
+          "pdb_idx": 70,
+          "icode": "",
+          "chothia": "69",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 297,
+          "chain_idx": 73,
+          "pdb_idx": 71,
+          "icode": "",
+          "chothia": "70",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 298,
+          "chain_idx": 74,
+          "pdb_idx": 72,
+          "icode": "",
+          "chothia": "71",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 299,
+          "chain_idx": 75,
+          "pdb_idx": 73,
+          "icode": "",
+          "chothia": "72",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 300,
+          "chain_idx": 76,
+          "pdb_idx": 74,
+          "icode": "",
+          "chothia": "73",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 301,
+          "chain_idx": 77,
+          "pdb_idx": 75,
+          "icode": "",
+          "chothia": "74",
+          "aa": "I",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 302,
+          "chain_idx": 78,
+          "pdb_idx": 76,
+          "icode": "",
+          "chothia": "75",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 303,
+          "chain_idx": 79,
+          "pdb_idx": 77,
+          "icode": "",
+          "chothia": "76",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 304,
+          "chain_idx": 80,
+          "pdb_idx": 78,
+          "icode": "",
+          "chothia": "77",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 305,
+          "chain_idx": 81,
+          "pdb_idx": 79,
+          "icode": "",
+          "chothia": "78",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 306,
+          "chain_idx": 82,
+          "pdb_idx": 80,
+          "icode": "",
+          "chothia": "79",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 307,
+          "chain_idx": 83,
+          "pdb_idx": 81,
+          "icode": "",
+          "chothia": "80",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 308,
+          "chain_idx": 84,
+          "pdb_idx": 82,
+          "icode": "",
+          "chothia": "81",
+          "aa": "D",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 309,
+          "chain_idx": 85,
+          "pdb_idx": 83,
+          "icode": "",
+          "chothia": "82",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 310,
+          "chain_idx": 86,
+          "pdb_idx": 84,
+          "icode": "",
+          "chothia": "83",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 311,
+          "chain_idx": 87,
+          "pdb_idx": 85,
+          "icode": "",
+          "chothia": "84",
+          "aa": "D",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 312,
+          "chain_idx": 88,
+          "pdb_idx": 86,
+          "icode": "",
+          "chothia": "85",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 313,
+          "chain_idx": 89,
+          "pdb_idx": 87,
+          "icode": "",
+          "chothia": "86",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 314,
+          "chain_idx": 90,
+          "pdb_idx": 88,
+          "icode": "",
+          "chothia": "87",
+          "aa": "C",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 315,
+          "chain_idx": 91,
+          "pdb_idx": 89,
+          "icode": "",
+          "chothia": "88",
+          "aa": "C",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 316,
+          "chain_idx": 92,
+          "pdb_idx": 90,
+          "icode": "",
+          "chothia": "89",
+          "aa": "S",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 317,
+          "chain_idx": 93,
+          "pdb_idx": 91,
+          "icode": "",
+          "chothia": "90",
+          "aa": "Y",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 318,
+          "chain_idx": 94,
+          "pdb_idx": 92,
+          "icode": "",
+          "chothia": "91",
+          "aa": "A",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 319,
+          "chain_idx": 95,
+          "pdb_idx": 93,
+          "icode": "",
+          "chothia": "92",
+          "aa": "G",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 320,
+          "chain_idx": 96,
+          "pdb_idx": 94,
+          "icode": "",
+          "chothia": "93",
+          "aa": "S",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 321,
+          "chain_idx": 97,
+          "pdb_idx": 95,
+          "icode": "",
+          "chothia": "94",
+          "aa": "S",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 322,
+          "chain_idx": 98,
+          "pdb_idx": 95,
+          "icode": "A",
+          "chothia": "95",
+          "aa": "T",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 323,
+          "chain_idx": 99,
+          "pdb_idx": 96,
+          "icode": "",
+          "chothia": "95A",
+          "aa": "W",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 324,
+          "chain_idx": 100,
+          "pdb_idx": 97,
+          "icode": "",
+          "chothia": "96",
+          "aa": "V",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 325,
+          "chain_idx": 101,
+          "pdb_idx": 98,
+          "icode": "",
+          "chothia": "97",
+          "aa": "F",
+          "cdr": "L3"
+        },
+        {
+          "chain": "L",
+          "global_idx": 326,
+          "chain_idx": 102,
+          "pdb_idx": 99,
+          "icode": "",
+          "chothia": "98",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 327,
+          "chain_idx": 103,
+          "pdb_idx": 100,
+          "icode": "",
+          "chothia": "99",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 328,
+          "chain_idx": 104,
+          "pdb_idx": 101,
+          "icode": "",
+          "chothia": "100",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 329,
+          "chain_idx": 105,
+          "pdb_idx": 102,
+          "icode": "",
+          "chothia": "101",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 330,
+          "chain_idx": 106,
+          "pdb_idx": 103,
+          "icode": "",
+          "chothia": "102",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 331,
+          "chain_idx": 107,
+          "pdb_idx": 104,
+          "icode": "",
+          "chothia": "103",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 332,
+          "chain_idx": 108,
+          "pdb_idx": 105,
+          "icode": "",
+          "chothia": "104",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 333,
+          "chain_idx": 109,
+          "pdb_idx": 106,
+          "icode": "",
+          "chothia": "105",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 334,
+          "chain_idx": 110,
+          "pdb_idx": 106,
+          "icode": "A",
+          "chothia": "106",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 335,
+          "chain_idx": 111,
+          "pdb_idx": 107,
+          "icode": "",
+          "chothia": "107",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 336,
+          "chain_idx": 112,
+          "pdb_idx": 108,
+          "icode": "",
+          "chothia": "",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 337,
+          "chain_idx": 113,
+          "pdb_idx": 109,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 338,
+          "chain_idx": 114,
+          "pdb_idx": 110,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 339,
+          "chain_idx": 115,
+          "pdb_idx": 111,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 340,
+          "chain_idx": 116,
+          "pdb_idx": 112,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 341,
+          "chain_idx": 117,
+          "pdb_idx": 113,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 342,
+          "chain_idx": 118,
+          "pdb_idx": 114,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 343,
+          "chain_idx": 119,
+          "pdb_idx": 115,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 344,
+          "chain_idx": 120,
+          "pdb_idx": 116,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 345,
+          "chain_idx": 121,
+          "pdb_idx": 117,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 346,
+          "chain_idx": 122,
+          "pdb_idx": 118,
+          "icode": "",
+          "chothia": "",
+          "aa": "F",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 347,
+          "chain_idx": 123,
+          "pdb_idx": 119,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 348,
+          "chain_idx": 124,
+          "pdb_idx": 120,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 349,
+          "chain_idx": 125,
+          "pdb_idx": 121,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 350,
+          "chain_idx": 126,
+          "pdb_idx": 122,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 351,
+          "chain_idx": 127,
+          "pdb_idx": 123,
+          "icode": "",
+          "chothia": "",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 352,
+          "chain_idx": 128,
+          "pdb_idx": 124,
+          "icode": "",
+          "chothia": "",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 353,
+          "chain_idx": 129,
+          "pdb_idx": 125,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 354,
+          "chain_idx": 130,
+          "pdb_idx": 126,
+          "icode": "",
+          "chothia": "",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 355,
+          "chain_idx": 131,
+          "pdb_idx": 127,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 356,
+          "chain_idx": 132,
+          "pdb_idx": 128,
+          "icode": "",
+          "chothia": "",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 357,
+          "chain_idx": 133,
+          "pdb_idx": 129,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 358,
+          "chain_idx": 134,
+          "pdb_idx": 130,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 359,
+          "chain_idx": 135,
+          "pdb_idx": 131,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 360,
+          "chain_idx": 136,
+          "pdb_idx": 132,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 361,
+          "chain_idx": 137,
+          "pdb_idx": 133,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 362,
+          "chain_idx": 138,
+          "pdb_idx": 134,
+          "icode": "",
+          "chothia": "",
+          "aa": "C",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 363,
+          "chain_idx": 139,
+          "pdb_idx": 135,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 364,
+          "chain_idx": 140,
+          "pdb_idx": 136,
+          "icode": "",
+          "chothia": "",
+          "aa": "I",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 365,
+          "chain_idx": 141,
+          "pdb_idx": 137,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 366,
+          "chain_idx": 142,
+          "pdb_idx": 138,
+          "icode": "",
+          "chothia": "",
+          "aa": "D",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 367,
+          "chain_idx": 143,
+          "pdb_idx": 139,
+          "icode": "",
+          "chothia": "",
+          "aa": "F",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 368,
+          "chain_idx": 144,
+          "pdb_idx": 140,
+          "icode": "",
+          "chothia": "",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 369,
+          "chain_idx": 145,
+          "pdb_idx": 141,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 370,
+          "chain_idx": 146,
+          "pdb_idx": 142,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 371,
+          "chain_idx": 147,
+          "pdb_idx": 143,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 372,
+          "chain_idx": 148,
+          "pdb_idx": 144,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 373,
+          "chain_idx": 149,
+          "pdb_idx": 145,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 374,
+          "chain_idx": 150,
+          "pdb_idx": 146,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 375,
+          "chain_idx": 151,
+          "pdb_idx": 147,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 376,
+          "chain_idx": 152,
+          "pdb_idx": 148,
+          "icode": "",
+          "chothia": "",
+          "aa": "W",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 377,
+          "chain_idx": 153,
+          "pdb_idx": 149,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 378,
+          "chain_idx": 154,
+          "pdb_idx": 150,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 379,
+          "chain_idx": 155,
+          "pdb_idx": 151,
+          "icode": "",
+          "chothia": "",
+          "aa": "D",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 380,
+          "chain_idx": 156,
+          "pdb_idx": 152,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 381,
+          "chain_idx": 157,
+          "pdb_idx": 153,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 382,
+          "chain_idx": 158,
+          "pdb_idx": 154,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 383,
+          "chain_idx": 159,
+          "pdb_idx": 155,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 384,
+          "chain_idx": 160,
+          "pdb_idx": 156,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 385,
+          "chain_idx": 161,
+          "pdb_idx": 157,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 386,
+          "chain_idx": 162,
+          "pdb_idx": 158,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 387,
+          "chain_idx": 163,
+          "pdb_idx": 159,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 388,
+          "chain_idx": 164,
+          "pdb_idx": 160,
+          "icode": "",
+          "chothia": "",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 389,
+          "chain_idx": 165,
+          "pdb_idx": 161,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 390,
+          "chain_idx": 166,
+          "pdb_idx": 162,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 391,
+          "chain_idx": 167,
+          "pdb_idx": 163,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 392,
+          "chain_idx": 168,
+          "pdb_idx": 164,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 393,
+          "chain_idx": 169,
+          "pdb_idx": 165,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 394,
+          "chain_idx": 170,
+          "pdb_idx": 166,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 395,
+          "chain_idx": 171,
+          "pdb_idx": 167,
+          "icode": "",
+          "chothia": "",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 396,
+          "chain_idx": 172,
+          "pdb_idx": 168,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 397,
+          "chain_idx": 173,
+          "pdb_idx": 169,
+          "icode": "",
+          "chothia": "",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 398,
+          "chain_idx": 174,
+          "pdb_idx": 170,
+          "icode": "",
+          "chothia": "",
+          "aa": "N",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 399,
+          "chain_idx": 175,
+          "pdb_idx": 171,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 400,
+          "chain_idx": 176,
+          "pdb_idx": 172,
+          "icode": "",
+          "chothia": "",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 401,
+          "chain_idx": 177,
+          "pdb_idx": 173,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 402,
+          "chain_idx": 178,
+          "pdb_idx": 174,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 403,
+          "chain_idx": 179,
+          "pdb_idx": 175,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 404,
+          "chain_idx": 180,
+          "pdb_idx": 176,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 405,
+          "chain_idx": 181,
+          "pdb_idx": 177,
+          "icode": "",
+          "chothia": "",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 406,
+          "chain_idx": 182,
+          "pdb_idx": 178,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 407,
+          "chain_idx": 183,
+          "pdb_idx": 179,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 408,
+          "chain_idx": 184,
+          "pdb_idx": 180,
+          "icode": "",
+          "chothia": "",
+          "aa": "L",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 409,
+          "chain_idx": 185,
+          "pdb_idx": 181,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 410,
+          "chain_idx": 186,
+          "pdb_idx": 182,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 411,
+          "chain_idx": 187,
+          "pdb_idx": 183,
+          "icode": "",
+          "chothia": "",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 412,
+          "chain_idx": 188,
+          "pdb_idx": 184,
+          "icode": "",
+          "chothia": "",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 413,
+          "chain_idx": 189,
+          "pdb_idx": 185,
+          "icode": "",
+          "chothia": "",
+          "aa": "W",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 414,
+          "chain_idx": 190,
+          "pdb_idx": 186,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 415,
+          "chain_idx": 191,
+          "pdb_idx": 187,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 416,
+          "chain_idx": 192,
+          "pdb_idx": 188,
+          "icode": "",
+          "chothia": "",
+          "aa": "H",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 417,
+          "chain_idx": 193,
+          "pdb_idx": 189,
+          "icode": "",
+          "chothia": "",
+          "aa": "R",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 418,
+          "chain_idx": 194,
+          "pdb_idx": 190,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 419,
+          "chain_idx": 195,
+          "pdb_idx": 191,
+          "icode": "",
+          "chothia": "",
+          "aa": "Y",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 420,
+          "chain_idx": 196,
+          "pdb_idx": 192,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 421,
+          "chain_idx": 197,
+          "pdb_idx": 193,
+          "icode": "",
+          "chothia": "",
+          "aa": "C",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 422,
+          "chain_idx": 198,
+          "pdb_idx": 194,
+          "icode": "",
+          "chothia": "",
+          "aa": "Q",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 423,
+          "chain_idx": 199,
+          "pdb_idx": 195,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 424,
+          "chain_idx": 200,
+          "pdb_idx": 196,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 425,
+          "chain_idx": 201,
+          "pdb_idx": 197,
+          "icode": "",
+          "chothia": "",
+          "aa": "H",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 426,
+          "chain_idx": 202,
+          "pdb_idx": 198,
+          "icode": "",
+          "chothia": "",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 427,
+          "chain_idx": 203,
+          "pdb_idx": 199,
+          "icode": "",
+          "chothia": "",
+          "aa": "G",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 428,
+          "chain_idx": 204,
+          "pdb_idx": 200,
+          "icode": "",
+          "chothia": "",
+          "aa": "S",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 429,
+          "chain_idx": 205,
+          "pdb_idx": 201,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 430,
+          "chain_idx": 206,
+          "pdb_idx": 202,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 431,
+          "chain_idx": 207,
+          "pdb_idx": 203,
+          "icode": "",
+          "chothia": "",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 432,
+          "chain_idx": 208,
+          "pdb_idx": 204,
+          "icode": "",
+          "chothia": "",
+          "aa": "K",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 433,
+          "chain_idx": 209,
+          "pdb_idx": 205,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 434,
+          "chain_idx": 210,
+          "pdb_idx": 206,
+          "icode": "",
+          "chothia": "",
+          "aa": "V",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 435,
+          "chain_idx": 211,
+          "pdb_idx": 207,
+          "icode": "",
+          "chothia": "",
+          "aa": "A",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 436,
+          "chain_idx": 212,
+          "pdb_idx": 208,
+          "icode": "",
+          "chothia": "",
+          "aa": "P",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 437,
+          "chain_idx": 213,
+          "pdb_idx": 209,
+          "icode": "",
+          "chothia": "",
+          "aa": "T",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 438,
+          "chain_idx": 214,
+          "pdb_idx": 210,
+          "icode": "",
+          "chothia": "",
+          "aa": "E",
+          "cdr": ""
+        },
+        {
+          "chain": "L",
+          "global_idx": 439,
+          "chain_idx": 215,
+          "pdb_idx": 211,
+          "icode": "",
+          "chothia": "",
+          "aa": "C",
+          "cdr": ""
+        }
+      ],
+      "cdrs": {
+        "L1": {
+          "chain_idx": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37
+          ],
+          "pdb_idx": [
+            25,
+            26,
+            27,
+            27,
+            27,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ],
+          "chothia": [
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "30A",
+            "30B",
+            "30C",
+            "31",
+            "32",
+            "33",
+            "34"
+          ],
+          "sequence": "GTSSDVGSYNLVSW"
+        },
+        "L2": {
+          "chain_idx": [
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59
+          ],
+          "pdb_idx": [
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57
+          ],
+          "chothia": [
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56"
+          ],
+          "sequence": "VSKRPSG"
+        },
+        "L3": {
+          "chain_idx": [
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "pdb_idx": [
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            95,
+            96,
+            97,
+            98
+          ],
+          "chothia": [
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "95A",
+            "96",
+            "97"
+          ],
+          "sequence": "SYAGSSTWVF"
+        }
+      },
+      "type": "L"
+    }
+  }
+}

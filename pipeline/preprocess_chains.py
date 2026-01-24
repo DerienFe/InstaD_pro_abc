@@ -10,6 +10,7 @@ from typing import List
 
 from Bio import PDB
 from Bio.PDB.Polypeptide import PPBuilder
+from Bio.SeqUtils import seq1
 
 
 def _clean_chain_ids(raw: str) -> List[str]:
@@ -22,10 +23,19 @@ def _clean_chain_ids(raw: str) -> List[str]:
 
 
 def _chain_sequence(chain: PDB.Chain.Chain) -> str:
-    builder = PPBuilder()
-    peptides = builder.build_peptides(chain)
-    seq = ''.join(str(pp.get_sequence()) for pp in peptides)
-    return seq
+    # Build sequence directly from standard residues; include residues even if CA is missing so lengths match coords.
+    seq_chars = []
+    for res in chain:
+        if res.id[0] != ' ':
+            continue
+        try:
+            aa = seq1(res.resname)
+        except Exception:
+            continue
+        if not aa or aa == 'X':
+            continue
+        seq_chars.append(aa)
+    return ''.join(seq_chars)
 
 
 def _count_standard_res(chain: PDB.Chain.Chain) -> int:
@@ -43,6 +53,11 @@ def extract_chains(pdb_path: Path, chain_ids: List[str], out_pdb: Path, out_fast
     class ChainSelect(PDB.Select):
         def accept_chain(self, chain):
             return chain.id in chain_ids
+
+        def accept_atom(self, atom):
+            # Drop hetero atoms (including ligands, waters) to prevent sequence length mismatches.
+            res = atom.get_parent()
+            return res.id[0] == ' '
 
     io = PDB.PDBIO()
     io.set_structure(structure)

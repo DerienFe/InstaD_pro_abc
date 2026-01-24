@@ -9,6 +9,8 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Tuple
 
+from Bio import PDB
+
 import numpy as np
 import torch
 import torch.nn.functional as F
@@ -47,17 +49,33 @@ def clean_chain_list(raw: str) -> List[str]:
     return sorted(uniq)
 
 
-def read_design_sequence(path: Path, chain_ids: List[str], chain_lengths: Dict[str, int]) -> List[str]:
+def read_design_sequence(path: Path, chain_ids: List[str], chain_lengths: Dict[str, int], allow_longer: bool) -> List[str]:
     text = path.read_text().strip().splitlines()
     text = [line for line in text if not line.startswith('>')]
     seq_joined = ''.join(text).replace(' ', '')
     seq_parts = seq_joined.split('/') if '/' in seq_joined else [seq_joined]
     if len(seq_parts) != len(chain_ids):
-        raise ValueError(f"Expected {len(chain_ids)} chain sequences, got {len(seq_parts)}")
+        raise ValueError(f"Expected {len(chain_ids)} chain sequences for {chain_ids}, got {len(seq_parts)} in {path.name}")
+    cleaned: List[str] = []
     for cid, seq in zip(chain_ids, seq_parts):
-        if len(seq) != chain_lengths[cid]:
-            raise ValueError(f"Length mismatch for chain {cid}: expected {chain_lengths[cid]}, got {len(seq)}")
-    return seq_parts
+        expected = chain_lengths[cid]
+        if len(seq) != expected:
+            if allow_longer and len(seq) > expected:
+                print(f"[warn] Truncating chain {cid} sequence from {len(seq)} to expected {expected} based on PDB length", file=sys.stderr)
+                seq = seq[:expected]
+            elif len(seq) < expected:
+                pad = expected - len(seq)
+                print(f"[warn] Padding chain {cid} sequence from {len(seq)} to expected {expected} with {pad} 'X' residues (PDB has internal gaps)", file=sys.stderr)
+                seq = seq + ('X' * pad)
+            else:
+                head = seq[:20]
+                tail = seq[-20:] if len(seq) > 20 else seq
+                raise ValueError(
+                    f"Length mismatch for chain {cid} in {path.name}: expected {expected}, got {len(seq)}. "
+                    f"First20={head} | Last20={tail}"
+                )
+        cleaned.append(seq)
+    return cleaned
 
 
 def build_chain_spans(pdb_dict: dict, design_chains: List[str], visible_chains: List[str]) -> Tuple[Dict[str, Tuple[int, int]], List[str]]:
@@ -94,13 +112,35 @@ def load_mpnn(mpnn_root: Path, ca_only: bool, model_name: str, use_soluble: bool
     return model
 
 
-def position_lookup(spans: Dict[str, Tuple[int, int]]) -> List[Dict[str, object]]:
+def position_lookup(spans: Dict[str, Tuple[int, int]], pdb_indices: Dict[str, List[Tuple[int, str]]]) -> List[Dict[str, object]]:
     positions: List[Dict[str, object]] = []
     for chain, (start, end) in spans.items():
+        pdb_list = pdb_indices.get(chain, [])
         for offset in range(start, end):
-            positions.append({'chain': chain, 'global_idx': offset, 'chain_idx': offset - start + 1})
+            local_idx = offset - start
+            pdb_idx, icode = pdb_list[local_idx] if local_idx < len(pdb_list) else (local_idx + 1, '')
+            positions.append({'chain': chain, 'global_idx': offset, 'chain_idx': local_idx + 1, 'pdb_idx': pdb_idx, 'icode': icode})
     positions = sorted(positions, key=lambda x: x['global_idx'])
     return positions
+
+
+def pdb_index_map(pdb_path: Path, chain_ids: List[str]) -> Dict[str, List[Tuple[int, str]]]:
+    parser = PDB.PDBParser(QUIET=True)
+    structure = parser.get_structure(pdb_path.stem, pdb_path)
+    mapping: Dict[str, List[Tuple[int, str]]] = {}
+    for cid in chain_ids:
+        chain = structure[0][cid]
+        entries: List[Tuple[int, str]] = []
+        for res in chain:
+            if res.id[0] != ' ':
+                continue
+            if 'CA' not in res:
+                continue
+            resseq = int(res.id[1])
+            icode = res.id[2].strip() or ''
+            entries.append((resseq, icode))
+        mapping[cid] = entries
+    return mapping
 
 
 def tensors_from_pdb(mpnn_root: Path, pdb_path: Path, design_chains: List[str], ca_only: bool, design_ranges: Dict[str, List[Tuple[int, int]]]):
@@ -128,21 +168,31 @@ def tensors_from_pdb(mpnn_root: Path, pdb_path: Path, design_chains: List[str], 
         ca_only=ca_only,
     )
     spans, chain_order = build_chain_spans(pdb_dict, design_chains, visible)
+    pdb_indices = pdb_index_map(pdb_path, chain_order)
+    for cid in chain_order:
+        expected = spans[cid][1] - spans[cid][0]
+        observed = len(pdb_indices.get(cid, []))
+        if expected != observed:
+            print(f"[warn] chain {cid}: length {expected} vs pdb-indexed residues {observed}; downstream masks use pdb indices where available", file=sys.stderr)
     design_mask = torch.zeros_like(mask)
     for cid in design_chains:
         start, end = spans[cid]
+        length = end - start
         if cid in design_ranges:
-            local_mask = torch.zeros(end - start, device=design_mask.device)
-            for lo, hi in design_ranges[cid]:
-                lo0 = max(lo - 1, 0)
-                hi0 = min(hi, end - start)
-                local_mask[lo0:hi0] = 1.0
+            local_mask = torch.zeros(length, device=design_mask.device)
+            pdb_list = pdb_indices.get(cid, [])
+            for idx in range(length):
+                pdb_idx = pdb_list[idx][0] if idx < len(pdb_list) else (idx + 1)
+                for lo, hi in design_ranges[cid]:
+                    if lo <= pdb_idx <= hi:
+                        local_mask[idx] = 1.0
+                        break
         else:
-            local_mask = torch.ones(end - start, device=design_mask.device)
+            local_mask = torch.ones(length, device=design_mask.device)
         design_mask[:, start:end] = local_mask
     base_mask = mask * chain_M * chain_M_pos
     design_mask = design_mask * base_mask
-    positions = position_lookup(spans)
+    positions = position_lookup(spans, pdb_indices)
     return pdb_dict, X, S, mask, chain_M, chain_M_pos, residue_idx, chain_encoding_all, design_mask, spans, chain_order, positions
 
 
@@ -274,13 +324,14 @@ def main() -> None:
     parser.add_argument('--fasta', type=Path, default=None, help="Headerless '/'-joined sequences for design chains")
     parser.add_argument('--design-ranges', type=str, default=None, help="e.g. A:19-29,324-326,353-355;E:10-20")
     parser.add_argument('--out-dir', required=True, type=Path)
-    parser.add_argument('--num-samples', type=int, default=1)
+    parser.add_argument('--num-samples', type=int, default=1000)
     parser.add_argument('--model-name', type=str, default='v_48_020')
     parser.add_argument('--ca-only', action='store_true')
     parser.add_argument('--use-soluble-model', action='store_true')
     parser.add_argument('--mpnn-root', type=Path, default=Path(__file__).resolve().parents[2] / 'ProteinMPNN')
     parser.add_argument('--ala-scan', action='store_true', help='Run per-position alanine scan over designable residues')
     parser.add_argument('--all19-scan', action='store_true', help='Run per-position all-19 average penalty over designable residues')
+    parser.add_argument('--allow-longer-seqs', action='store_true', help='Allow provided sequences longer than the PDB length by truncating to observed length')
     args = parser.parse_args()
 
     design_chains = clean_chain_list(args.design_chains)
@@ -297,12 +348,14 @@ def main() -> None:
 
     chain_lengths = {cid: spans[cid][1] - spans[cid][0] for cid in design_chains}
     if args.fasta:
-        seq_parts = read_design_sequence(args.fasta, design_chains, chain_lengths)
+        seq_parts = read_design_sequence(args.fasta, design_chains, chain_lengths, args.allow_longer_seqs)
         S_used = override_sequence(S_native, spans, design_chains, seq_parts)
         seq_override = '/'.join(seq_parts)
+        print(f"[info] Using provided design sequence from {args.fasta}: {seq_override}")
     else:
         S_used = S_native
         seq_override = None
+        print("[info] Using native sequence from PDB for designed chains")
 
     scores = score_sequences(model, X, S_used, mask, chain_M, chain_M_pos, residue_idx, chain_encoding_all, design_mask, args.num_samples)
 
@@ -337,6 +390,14 @@ def main() -> None:
     design_vals = design_nll[design_nll > 0]
     design_stats = f"design_residue_NLL mean={design_vals.mean():.4f}, median={np.median(design_vals):.4f}, min={design_vals.min():.4f}, max={design_vals.max():.4f}" if design_vals.size else "design_residue_NLL n/a"
 
+    # Save design-only per-residue NLL to CSV for easier inspection
+    design_rows = ["chain,pdb_idx,chain_idx,global_idx,nll"]
+    for pos in design_positions:
+        gidx = pos['global_idx']
+        nll_val = design_nll[gidx]
+        design_rows.append(f"{pos['chain']},{pos.get('pdb_idx','')},{pos['chain_idx']},{gidx},{nll_val:.6f}")
+    (args.out_dir / f"{stem}_design_nll.csv").write_text('\n'.join(design_rows) + '\n')
+
     out_txt = args.out_dir / f"{stem}_summary.txt"
     lines = [
         f"pdb={args.pdb}",
@@ -346,6 +407,7 @@ def main() -> None:
         f"design_mean_NLL={scores['design_mean'].mean():.4f} +- {scores['design_mean'].std():.4f}",
         f"global_mean_NLL={scores['global_mean'].mean():.4f} +- {scores['global_mean'].std():.4f}",
         design_stats,
+        f"design_nll_values={[float(x) for x in design_nll.tolist()]}",
     ]
     if seq_override:
         lines.append(f"sequence_override={seq_override}")
