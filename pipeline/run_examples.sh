@@ -109,7 +109,7 @@ python "$ROOT/pipeline/mpnn_score_only.py" \
   --pdb "$DATA/7z0x_hlr.pdb" \
   --design-chains "H L R" \
   --fasta "$DATA/7z0x_hlr.seq" \
-   --design-ranges "H:20-30,51-60,98-116;L:24-37,92-101"\
+   --design-ranges "H:20-30,51-60,94-116;L:24-37,92-101"\
    --allow-longer-seqs \
   --num-samples 100 \
   --out-dir "$OUT/7z0x_ab_bound"
@@ -118,7 +118,7 @@ python "$ROOT/pipeline/mpnn_score_only.py" \
     --pdb "$DATA/7z0x_hl.pdb" \
     --design-chains "H L" \
     --fasta "$DATA/7z0x_hl.seq" \
-    --design-ranges "H:20-30,51-60,98-116;L:24-37,92-101"\
+    --design-ranges "H:20-30,51-60,94-116;L:24-37,92-101"\
     --allow-longer-seqs \
     --num-samples 100 \
     --out-dir "$OUT/7z0x_ab_unbound"
@@ -129,7 +129,7 @@ python "$ROOT/pipeline/mpnn_score_only.py" \
   --pdb "$DATA/7z0x_hlr.pdb" \
     --design-chains "H L R" \
     --fasta "$DATA/7z0x_hlr.seq" \
-    --design-ranges "R:445-457,474-479,485-490,500-505" \
+    --design-ranges "R:445-457,474-479,482-490,500-505" \
     --num-samples 100 \
     --out-dir "$OUT/7z0x_s1_only_bound"
 
@@ -137,7 +137,7 @@ python "$ROOT/pipeline/mpnn_score_only.py" \
     --pdb "$DATA/7z0x_r.pdb" \
     --design-chains "R" \
     --fasta "$DATA/7z0x_r.seq" \
-    --design-ranges "R:445-457,474-479,485-490,500-505" \
+    --design-ranges "R:445-457,474-479,482-490,500-505" \
     --num-samples 100 \
     --out-dir "$OUT/7z0x_s1_only_unbound"
 

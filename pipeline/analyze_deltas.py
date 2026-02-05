@@ -9,12 +9,13 @@ import argparse
 import csv
 import json
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional
 
 import matplotlib.pyplot as plt
 
 
 def load_design_nll(path: Path) -> Dict[Tuple[str, int], Dict[str, float | str | None]]:
+    """Load design_nll CSV keyed by (chain, chain_idx) to preserve insertions."""
     table: Dict[Tuple[str, int], Dict[str, float | str | None]] = {}
     with path.open() as fh:
         reader = csv.DictReader(fh)
@@ -22,18 +23,24 @@ def load_design_nll(path: Path) -> Dict[Tuple[str, int], Dict[str, float | str |
             chain = row.get('chain') or row.get('Chain')
             if chain is None:
                 continue
-            pdb_idx = row.get('pdb_idx') or row.get('pdb') or row.get('pdb_index')
-            if pdb_idx is None or row['nll'] is None:
+            chain_idx_val = row.get('chain_idx') or row.get('Chain_idx') or row.get('chain_index')
+            pdb_idx_val = row.get('pdb_idx') or row.get('pdb') or row.get('pdb_index')
+            if (chain_idx_val is None and pdb_idx_val is None) or row.get('nll') is None:
                 continue
             try:
-                pdb_idx_int = int(pdb_idx)
+                chain_idx_int = int(chain_idx_val) if chain_idx_val is not None else None
+                pdb_idx_int = int(pdb_idx_val) if pdb_idx_val is not None else None
                 nll_val = float(row['nll'])
             except ValueError:
                 continue
-            chain_idx = int(row['chain_idx']) if row.get('chain_idx') else None
+            chain_idx_key = chain_idx_int if chain_idx_int is not None else pdb_idx_int
+            if chain_idx_key is None:
+                continue
+            chain_idx = chain_idx_int
             aa_val = row.get('aa') if row.get('aa') else None
-            table[(chain, pdb_idx_int)] = {
+            table[(chain, chain_idx_key)] = {
                 'nll': nll_val,
+                'pdb_idx': pdb_idx_int,
                 'chain_idx': chain_idx,
                 'global_idx': int(row['global_idx']) if row.get('global_idx') else None,
                 'aa': aa_val,
@@ -42,7 +49,7 @@ def load_design_nll(path: Path) -> Dict[Tuple[str, int], Dict[str, float | str |
 
 
 def load_chothia_map(path: Path | None) -> Dict[Tuple[str, int], Dict[str, str]]:
-    """Return per-residue annotations: chothia label and one-letter AA."""
+    """Return per-residue annotations keyed by (chain, chain_idx)."""
     if path is None or not path.exists():
         return {}
     data = json.loads(path.read_text())
@@ -52,32 +59,37 @@ def load_chothia_map(path: Path | None) -> Dict[Tuple[str, int], Dict[str, str]]
         rows = payload.get('rows', []) if isinstance(payload, dict) else []
         for r in rows:
             try:
-                pdb_idx = int(r.get('pdb_idx', 0))
+                chain_idx = int(r.get('chain_idx', 0))
             except (TypeError, ValueError):
                 continue
-            label = r.get('chothia', '') or ''
-            aa = (r.get('aa') or '').strip()
-            out[(cid, pdb_idx)] = {'chothia': label, 'aa': aa}
+            out[(cid, chain_idx)] = {
+                'chothia': r.get('chothia', '') or '',
+                'aa': (r.get('aa') or '').strip(),
+                'pdb_idx': r.get('pdb_idx'),
+                'icode': r.get('icode', ''),
+            }
     return out
 
 
-def load_generic_map(path: Path | None) -> Dict[Tuple[str, int], str]:
-    """Load generic pdb-index -> AA map produced by preprocess_chains (_map.json)."""
+def load_generic_map(path: Path | None) -> Dict[Tuple[str, int], Dict[str, str]]:
+    """Load generic chain_idx->AA map produced by preprocess_chains (_map.json)."""
     if path is None or not path.exists():
         return {}
     data = json.loads(path.read_text())
-    out: Dict[Tuple[str, int], str] = {}
+    out: Dict[Tuple[str, int], Dict[str, str]] = {}
     chains = data.get('map', {}) if isinstance(data, dict) else {}
     for cid, payload in chains.items():
         rows = payload.get('rows', []) if isinstance(payload, dict) else []
         for r in rows:
             try:
-                pdb_idx = int(r.get('pdb_idx', 0))
+                chain_idx = int(r.get('chain_idx', 0))
             except (TypeError, ValueError):
                 continue
-            aa = (r.get('aa') or '').strip()
-            if aa:
-                out[(cid, pdb_idx)] = aa
+            out[(cid, chain_idx)] = {
+                'aa': (r.get('aa') or '').strip(),
+                'pdb_idx': r.get('pdb_idx'),
+                'icode': r.get('icode', ''),
+            }
     return out
 
 
@@ -89,8 +101,8 @@ def compute_delta(bound: Dict[Tuple[str, int], Dict[str, float | str | None]], u
         u = unbound[key]['nll']
         deltas.append({
             'chain': key[0],
-            'pdb_idx': key[1],
-            'chain_idx': bound[key].get('chain_idx'),
+            'pdb_idx': bound[key].get('pdb_idx'),
+            'chain_idx': key[1],
             'global_idx': bound[key].get('global_idx'),
             'bound_nll': b,
             'unbound_nll': u,
@@ -100,40 +112,50 @@ def compute_delta(bound: Dict[Tuple[str, int], Dict[str, float | str | None]], u
     return deltas
 
 
-def write_delta_csv(deltas: List[Dict[str, object]], path: Path, chothia: Dict[Tuple[str, int], Dict[str, str]], pdb_map: Dict[Tuple[str, int], str]):
+def write_delta_csv(deltas: List[Dict[str, object]], path: Path, chothia: Dict[Tuple[str, int], Dict[str, str]], pdb_map: Dict[Tuple[str, int], Dict[str, str]]):
     path.parent.mkdir(parents=True, exist_ok=True)
-    header = ['chain', 'pdb_idx', 'chain_idx', 'global_idx', 'bound_nll', 'unbound_nll', 'delta', 'aa', 'chothia']
+    header = ['chain', 'pdb_idx', 'icode', 'chain_idx', 'global_idx', 'bound_nll', 'unbound_nll', 'delta', 'aa', 'chothia']
     with path.open('w', newline='') as fh:
         writer = csv.DictWriter(fh, fieldnames=header)
         writer.writeheader()
         for d in deltas:
-            key = (d['chain'], d['pdb_idx'])
-            aa_val = d.get('aa') or chothia.get(key, {}).get('aa', '') or pdb_map.get(key, '')
+            key = (d['chain'], d['chain_idx'])
+            ann_c = chothia.get(key, {})
+            ann_p = pdb_map.get(key, {})
+            aa_val = d.get('aa') or ann_c.get('aa', '') or ann_p.get('aa', '')
+            pdb_idx_val = d.get('pdb_idx') if d.get('pdb_idx') is not None else ann_p.get('pdb_idx') or ann_c.get('pdb_idx')
+            icode_val = ann_c.get('icode') or ann_p.get('icode') or ''
             writer.writerow({
                 **d,
+                'pdb_idx': pdb_idx_val,
+                'icode': icode_val,
                 'aa': aa_val,
-                'chothia': chothia.get(key, {}).get('chothia', ''),
+                'chothia': ann_c.get('chothia', ''),
             })
 
 
-def top_changes(deltas: List[Dict[str, object]], chothia: Dict[Tuple[str, int], Dict[str, str]], pdb_map: Dict[Tuple[str, int], str], k: int = 5):
+def top_changes(deltas: List[Dict[str, object]], chothia: Dict[Tuple[str, int], Dict[str, str]], pdb_map: Dict[Tuple[str, int], Dict[str, str]], k: int = 5):
     inc = sorted(deltas, key=lambda x: x['delta'], reverse=True)[:k]
     dec = sorted(deltas, key=lambda x: x['delta'])[:k]
     def fmt(lst):
         lines = []
         for d in lst:
-            key = (d['chain'], d['pdb_idx'])
-            ann = chothia.get(key, {})
-            ch = ann.get('chothia', '')
-            aa = ann.get('aa', '') or pdb_map.get(key, '') or d.get('aa', '')
-            aa_tag = f"{aa}{d['pdb_idx']}" if aa else str(d['pdb_idx'])
+            key = (d['chain'], d['chain_idx'])
+            ann_c = chothia.get(key, {})
+            ann_p = pdb_map.get(key, {})
+            ch = ann_c.get('chothia', '')
+            aa = ann_c.get('aa', '') or ann_p.get('aa', '') or d.get('aa', '')
+            pdb_idx_val = d.get('pdb_idx') if d.get('pdb_idx') is not None else ann_p.get('pdb_idx') or ann_c.get('pdb_idx')
+            icode_val = ann_c.get('icode') or ann_p.get('icode') or ''
+            idx_tag = f"{pdb_idx_val}{icode_val}" if pdb_idx_val is not None else str(d['chain_idx'])
+            aa_tag = f"{aa}{idx_tag}" if aa else idx_tag
             ch_tag = f" (chothia {ch})" if ch else ''
             lines.append(f"{d['chain']} {aa_tag}{ch_tag}: delta={d['delta']:.3f} bound={d['bound_nll']:.3f} unbound={d['unbound_nll']:.3f}")
         return lines
     return fmt(inc), fmt(dec)
 
 
-def plot_deltas(deltas: List[Dict[str, object]], chothia: Dict[Tuple[str, int], Dict[str, str]], pdb_map: Dict[Tuple[str, int], str], title: str, out_png: Path):
+def plot_deltas(deltas: List[Dict[str, object]], chothia: Dict[Tuple[str, int], Dict[str, str]], pdb_map: Dict[Tuple[str, int], Dict[str, str]], title: str, out_png: Path):
     chains = sorted({d['chain'] for d in deltas})
     fig, axes = plt.subplots(len(chains), 1, figsize=(10, max(3, 3 * len(chains))), sharey=True)
     if hasattr(axes, 'flatten'):
@@ -141,8 +163,8 @@ def plot_deltas(deltas: List[Dict[str, object]], chothia: Dict[Tuple[str, int], 
     elif not isinstance(axes, (list, tuple)):
         axes = [axes]
     for ax, chain in zip(axes, chains):
-        subset = sorted([d for d in deltas if d['chain'] == chain], key=lambda x: x['pdb_idx'])
-        raw_idx = [d['pdb_idx'] for d in subset]
+        subset = sorted([d for d in deltas if d['chain'] == chain], key=lambda x: x['chain_idx'])
+        raw_idx = [d['chain_idx'] for d in subset]
         y = [d['delta'] for d in subset]
 
         # Compress gaps between disjoint regions to a small spacer to avoid large empty spans on the x-axis.
@@ -165,10 +187,14 @@ def plot_deltas(deltas: List[Dict[str, object]], chothia: Dict[Tuple[str, int], 
         # Force one tick per residue in the designable set.
         ax.set_xticks(x)
         labels = []
-        for pdb_idx, d in zip(raw_idx, subset):
-            ann = chothia.get((chain, pdb_idx), {})
-            aa = ann.get('aa', '') or pdb_map.get((chain, pdb_idx), '') or d.get('aa', '') or ''
-            labels.append(f"{aa}{pdb_idx}" if aa else str(pdb_idx))
+        for chain_idx, d in zip(raw_idx, subset):
+            ann_c = chothia.get((chain, chain_idx), {})
+            ann_p = pdb_map.get((chain, chain_idx), {})
+            aa = ann_c.get('aa', '') or ann_p.get('aa', '') or d.get('aa', '') or ''
+            pdb_idx_val = d.get('pdb_idx') if d.get('pdb_idx') is not None else ann_p.get('pdb_idx') or ann_c.get('pdb_idx')
+            icode_val = ann_c.get('icode') or ann_p.get('icode') or ''
+            idx_tag = f"{pdb_idx_val}{icode_val}" if pdb_idx_val is not None else str(chain_idx)
+            labels.append(f"{aa}{idx_tag}" if aa else idx_tag)
         ax.set_xticklabels(labels)
         ax.set_xlim(min(x) - 0.6, max(x) + 0.6)
         ax.set_xlabel(f"Chain {chain} PDB index (compressed gaps)")
@@ -176,7 +202,7 @@ def plot_deltas(deltas: List[Dict[str, object]], chothia: Dict[Tuple[str, int], 
         ax.set_title(f"{title} chain {chain}")
         # Top axis with Chothia labels if available
         ticks = x
-        top_labels = [chothia.get((chain, pdb_idx), {}).get('chothia', '') for pdb_idx in raw_idx]
+        top_labels = [chothia.get((chain, chain_idx), {}).get('chothia', '') for chain_idx in raw_idx]
         if any(top_labels):
             ax_top = ax.secondary_xaxis('top')
             ax_top.set_xticks(ticks)
